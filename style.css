@@ -1,0 +1,108 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Background Animation */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #6a1b9a, #00bcd4, #ff5722, #8bc34a);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
+
+/* Keyframes for background animation */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Content Styling */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.description {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #2196F3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0d47a1;
+    transform: scale(1.1);
+}
+
+/* Navigation Bar Styling */
+nav {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    z-index: 3;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: white;
+    padding: 10px 20px;
+    background-color: #6200ea;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #3700b3;
+    transform: scale(1.1);
+}
