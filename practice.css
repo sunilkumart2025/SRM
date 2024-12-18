@@ -7,7 +7,8 @@
 }
 
 body {
-    overflow: hidden; /* Prevent scrollbars due to animations */
+    overflow: auto; /* Prevent scrollbars due to animations */}
+    min-height: 100vh; /* Ensures content expands as needed */
     color: #fff;
     background-color: #121212;
 }
