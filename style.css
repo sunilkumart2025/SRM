@@ -3,82 +3,83 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
 }
 
-/* Body Background */
+/* Body Styling */
 body {
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
-    color: #fff;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white; /* Text color */
+    background-color: #FF5733; /* Example background color */
+    line-height: 1.6;
+    overflow-y: auto; /* Ensures scrolling works */
+    min-height: 100vh; /* Full viewport height */
 }
 
-/* Navigation Bar */
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
+/* Navbar Styling */
+header {
+    background-color: #222; /* Dark background for navbar */
     padding: 10px 0;
-    text-align: right;
-    z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Center the navbar links */
+}
+
+.navbar li {
+    margin: 0 15px;
 }
 
 .navbar a {
-    color: #fff;
     text-decoration: none;
-    margin-right: 30px;
+    color: white;
     font-weight: bold;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
 }
 
 .navbar a:hover {
-    color: #ff9800;
+    color: #FFD700; /* Hover color: Gold */
 }
 
-/* Main Content Section */
-.background {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    height: 100vh;
-    padding-top: 50px; /* Prevents content overlap with navbar */
+/* Main Content Styling */
+.practice-page {
+    text-align: center; /* Centers text */
+    margin: 50px auto;  /* Center content vertically */
+    max-width: 800px;   /* Restrict width for readability */
+    padding: 20px;
 }
 
 h1 {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
     margin-bottom: 15px;
 }
 
-.description {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-    line-height: 1.5;
-}
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .practice-page {
+        padding: 10px;
+    }
 
-/* Animated Button */
-.button {
-    padding: 10px 30px;
-    font-size: 1.2rem;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
-}
+    h1 {
+        font-size: 1.8em;
+    }
 
-.button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+    p {
+        font-size: 1em;
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Stack links vertically on small screens */
+        align-items: center;
+    }
+
+    .navbar li {
+        margin: 10px 0;
+    }
 }
