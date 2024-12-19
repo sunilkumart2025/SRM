@@ -10,8 +10,8 @@
             margin: 0;
             padding: 0;
             background-color: #0d1117;
-            overflow: hidden;
             color: white;
+            overflow: hidden;
         }
         header {
             background-color: #007bff;
@@ -35,12 +35,13 @@
         nav .nav-links {
             display: flex;
             gap: 15px;
+            transition: max-height 0.3s ease;
+            overflow: hidden;
         }
         nav a {
             color: white;
             text-decoration: none;
             font-size: 18px;
-            position: relative;
             padding: 10px 20px;
             border-radius: 5px;
             transition: all 0.3s ease;
@@ -49,6 +50,30 @@
             background: #00d8ff;
             color: black;
             transform: scale(1.1);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background: white;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            .nav-links {
+                flex-direction: column;
+                max-height: 0;
+            }
+            .nav-links.active {
+                max-height: 200px;
+            }
         }
         .container {
             position: relative;
@@ -126,22 +151,6 @@
                 transform: translateX(-50px) translateY(-50px);
             }
         }
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            nav .nav-links {
-                flex-direction: column;
-                gap: 10px;
-                width: 100%;
-            }
-            nav a {
-                width: 100%;
-                text-align: left;
-            }
-        }
     </style>
 </head>
 <body>
@@ -151,6 +160,11 @@
     </header>
     <nav>
         <div class="branding">SKY</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">Developer</a>
@@ -164,9 +178,13 @@
         <button onclick="alert('Redirecting to resources...')">Get Resources</button>
     </div>
     <footer>
-        <p> Made for SRM, made by SKY </p>
-        <p>Want To Be A Contributor?   Join Our Community
- </p>
+        <p>&copy; 2024 SRMIST Study Resources. All rights reserved.</p>
     </footer>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
