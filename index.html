@@ -32,10 +32,13 @@
             font-weight: bold;
             color: #00d8ff;
         }
+        nav .nav-links {
+            display: flex;
+            gap: 15px;
+        }
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
             font-size: 18px;
             position: relative;
             padding: 10px 20px;
@@ -123,6 +126,22 @@
                 transform: translateX(-50px) translateY(-50px);
             }
         }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav .nav-links {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+            nav a {
+                width: 100%;
+                text-align: left;
+            }
+        }
     </style>
 </head>
 <body>
@@ -132,11 +151,11 @@
     </header>
     <nav>
         <div class="branding">SKY</div>
-        <div>
+        <div class="nav-links">
             <a href="#home">Home</a>
-            <a href="#developer">Developer</a>
+            <a href="#about">Developer</a>
             <a href="#services">Services</a>
-            <a href="#contribute">Contribute</a>
+            <a href="#contact">Contribute</a>
         </div>
     </nav>
     <div class="container">
@@ -145,8 +164,9 @@
         <button onclick="alert('Redirecting to resources...')">Get Resources</button>
     </div>
     <footer>
-        <p>Made for SRM, made by SKY</p>
-        <p>Want To Be A Contributor?   Join Our Community</p>
+        <p> Made for SRM, made by SKY </p>
+        <p>Want To Be A Contributor?   Join Our Community
+ </p>
     </footer>
 </body>
 </html>
