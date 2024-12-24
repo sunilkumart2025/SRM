@@ -116,11 +116,14 @@
             position: relative;
         }
 
-        .semester-buttons button {
+        .semester-buttons a.semester-button {
             width: 80%;
             max-width: 300px;
             background: linear-gradient(90deg, #6272a4, #44475a);
             color: white;
+            text-decoration: none;
+            text-align: center;
+            display: block;
             border: none;
             padding: 15px 20px;
             font-size: 18px;
@@ -131,7 +134,7 @@
             animation: bounceIn 1s ease-in-out forwards;
         }
 
-        .semester-buttons button:hover {
+        .semester-buttons a.semester-button:hover {
             transform: scale(1.1) rotate(3deg);
             background: linear-gradient(90deg, #ffb86c, #f1fa8c);
             box-shadow: 0 6px 20px rgba(255, 184, 108, 0.5);
@@ -257,7 +260,7 @@
         }
 
         @media (max-width: 768px) {
-            .semester-buttons button {
+            .semester-buttons a.semester-button {
                 width: 90%;
             }
         }
@@ -278,14 +281,14 @@
     <div class="container">
         <h2>Choose Your Semester</h2>
         <div class="semester-buttons">
-            <button href="ch_sub.html" style="animation-delay: 0.1s;">Semester 1</button>
-            <button style="animation-delay: 0.2s;">Semester 2</button>
-            <button style="animation-delay: 0.3s;">Semester 3</button>
-            <button style="animation-delay: 0.4s;">Semester 4</button>
-            <button style="animation-delay: 0.5s;">Semester 5</button>
-            <button style="animation-delay: 0.6s;">Semester 6</button>
-            <button style="animation-delay: 0.7s;">Semester 7</button>
-            <button style="animation-delay: 0.8s;">Semester 8</button>
+            <a href="#" class="semester-button" style="animation-delay: 0.1s;">Semester 1</a>
+            <a href="#" class="semester-button" style="animation-delay: 0.2s;">Semester 2</a>
+            <a href="#" class="semester-button" style="animation-delay: 0.3s;">Semester 3</a>
+            <a href="#" class="semester-button" style="animation-delay: 0.4s;">Semester 4</a>
+            <a href="#" class="semester-button" style="animation-delay: 0.5s;">Semester 5</a>
+            <a href="#" class="semester-button" style="animation-delay: 0.6s;">Semester 6</a>
+            <a href="#" class="semester-button" style="animation-delay: 0.7s;">Semester 7</a>
+            <a href="#" class="semester-button" style="animation-delay: 0.8s;">Semester 8</a>
         </div>
     </div>
     <div class="background-shapes">
