@@ -10,7 +10,6 @@
             margin: 0;
             padding: 0;
             background-color: #1e1e2f;
-            overflow-y: auto;
             color: white;
         }
         header {
@@ -18,7 +17,6 @@
             color: white;
             padding: 20px;
             text-align: center;
-            position: relative;
         }
         nav {
             display: flex;
@@ -32,106 +30,103 @@
             font-size: 28px;
             font-weight: bold;
             color: #ff79c6;
-            text-shadow: 0 0 10px #ff79c6, 0 0 20px #ff79c6;
         }
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            padding: 8px 12px;
             border-radius: 5px;
             transition: all 0.3s ease;
         }
         nav a:hover {
             background: #50fa7b;
             color: black;
-            transform: scale(1.1);
         }
         .container {
             position: relative;
             text-align: center;
-            padding: 50px 20px;
+            padding: 20px;
+            margin: 20px auto;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
-            width: 80%;
-            margin: 50px auto;
+            width: 90%;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            overflow-y: auto;
-            max-height: 70vh;
+            overflow: hidden;
         }
         .container p {
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 16px;
+            margin-bottom: 15px;
         }
         .container button {
             background: linear-gradient(90deg, #ff79c6, #8be9fd);
             color: white;
             border: none;
-            padding: 15px 30px;
-            font-size: 18px;
+            padding: 10px 20px;
+            font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
+            box-shadow: 0 0 10px #8be9fd, 0 0 20px #ff79c6;
         }
         .container button:hover {
             transform: scale(1.1);
-            background: linear-gradient(90deg, #8be9fd, #ff79c6);
+            background: linear-gradient(90deg, #50fa7b, #ffb86c);
+            box-shadow: 0 0 15px #ffb86c, 0 0 25px #50fa7b;
         }
         footer {
             background: #21222c;
             color: white;
             text-align: center;
             padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
         }
-        /* New Outer Animation */
-        .outer-animation {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, rgba(255, 121, 198, 0.3), rgba(139, 233, 253, 0.3));
-            animation: outerSpin 8s infinite linear;
-            z-index: -2;
-        }
-        @keyframes outerSpin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-        /* New Inner Animation */
+        /* Inner Animation */
         .inner-animation {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: conic-gradient(from 0deg, rgba(139, 233, 253, 0.5), transparent, rgba(255, 121, 198, 0.5));
-            clip-path: circle(50% at center);
-            animation: pulseExpand 6s infinite ease-in-out;
+            background: linear-gradient(45deg, rgba(255, 121, 198, 0.3), rgba(139, 233, 253, 0.3), rgba(80, 250, 123, 0.3));
+            background-size: 200% 200%;
+            animation: gradientRotate 6s infinite linear;
             z-index: -1;
         }
-        @keyframes pulseExpand {
-            0%, 100% {
-                transform: scale(1);
+        @keyframes gradientRotate {
+            0% {
+                background-position: 0% 50%;
             }
             50% {
-                transform: scale(1.2);
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav .branding {
+                font-size: 24px;
+            }
+            nav a {
+                font-size: 14px;
+            }
+            .container {
+                width: 95%;
+            }
+            .container p {
+                font-size: 14px;
+            }
+            .container button {
+                font-size: 14px;
+                padding: 8px 16px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="outer-animation"></div>
-    <header id="home">
+    <header>
         <h1>SRM Study Hub</h1>
     </header>
     <nav>
@@ -147,21 +142,13 @@
         <div class="inner-animation"></div>
         <p>Learn smarter, not harder! Dive into curated notes designed for your success. 📖🌟</p>
         <p>Every page you read adds to your knowledge. Study today, shine tomorrow!</p>
-        <p>A strong foundation leads to a strong future. Build yours with our detailed notes! 🏗️📘</p>
-        <p>GStay ahead of the curve! Master your concepts with concise and clear notes.</p>
-        <p>Your preparation today will define your success tomorrow. Start learning now! 🎓🔥</p>
-        <button onclick="window.location.href='#study material">Study Material</button>
-
+        <button onclick="window.location.href='#study material'">Study Material</button>
     </div>
     <div class="container">
         <div class="inner-animation"></div>
         <p>Challenge yourself! Each question is a step closer to your dream. Practice, improve, and succeed! 💪✨</p>
-        <p>Consistency beats talent! Test your knowledge and grow every day. 📚🧠</p>
         <p>Your future is created by what you do today. Start practicing now and shape your success!</p>
-        <p>Excellence is not a skill, it’s an attitude. Practice today, achieve greatness tomorrow!</p>
-        <p>Every question you solve takes you closer to your goal. Keep pushing forward! 🚀🎯</p>
-        <button onclick="window.location.href='#practice for exam">Practice for Exam</button>
-
+        <button onclick="window.location.href='#practice for exam'">Practice for Exam</button>
     </div>
     <footer>
         <p>&copy; 2024 SRMIST Study Resources. All rights reserved.</p>
