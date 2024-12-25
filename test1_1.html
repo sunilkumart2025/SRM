@@ -1,13 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Practice Test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #question {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        #options button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-  <h1 id="subject-title"></h1>
-  <div id="question-container"></div>
-  <div id="score-container"></div>
-  <button id="next-question" onclick="nextQuestion()">Next</button>
-  <script src="test1.1.js"></script>
+    <h1>Practice Test</h1>
+    <div>
+        <p id="question">Loading...</p>
+        <div id="options"></div>
+    </div>
+    <script src="test1_1.js"></script>
 </body>
 </html>
