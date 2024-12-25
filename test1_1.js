@@ -1,4 +1,5 @@
 let currentQuestionIndex = 0;
+let score = 0;
 let questions = [];
 
 async function loadQuestions(subject, test) {
@@ -30,23 +31,52 @@ function showQuestion() {
             options.appendChild(button);
         });
     } else {
-        const totalScore = questions.length;
-        const message = `Test completed! You scored ${totalScore} out of ${questions.length}.`;
-        document.getElementById("question").innerText = message;
-        document.getElementById("options").innerHTML = "";
+        showResult();
     }
 }
 
 function checkAnswer(selectedIndex) {
-    const correctAnswer = questions[currentQuestionIndex].answer;
-    const selectedOption = questions[currentQuestionIndex].options[selectedIndex];
-    if (selectedOption === correctAnswer) {
-        alert("Correct!");
-    } else {
-        alert("Wrong!");
+    const question = questions[currentQuestionIndex];
+    const correctIndex = question.options.indexOf(question.answer);
+    const options = document.getElementById("options").children;
+
+    Array.from(options).forEach((btn, index) => {
+        if (index === correctIndex) {
+            btn.classList.add("correct");
+        } else if (index === selectedIndex) {
+            btn.classList.add("wrong");
+        }
+        btn.disabled = true;
+    });
+
+    if (selectedIndex === correctIndex) {
+        score++;
     }
+
     currentQuestionIndex++;
-    showQuestion();
+    setTimeout(showQuestion, 1000);
+}
+
+function showResult() {
+    document.getElementById("question").innerText = "Test Completed!";
+    const resultDiv = document.getElementById("result");
+    resultDiv.style.display = "block";
+    resultDiv.innerHTML = `
+        You scored <strong>${score}/${questions.length}</strong>.<br><br>
+        <h3>Question Analysis:</h3>
+        <ol>
+            ${questions
+                .map((q, i) => {
+                    const userCorrect = q.answer === questions[i].answer;
+                    return `<li style="color: ${
+                        userCorrect ? "green" : "red"
+                    };">${q.question} - ${
+                        userCorrect ? "Correct" : "Wrong"
+                    }</li>`;
+                })
+                .join("")}
+        </ol>
+    `;
 }
 
 const urlParams = new URLSearchParams(window.location.search);
