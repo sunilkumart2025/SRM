@@ -9,31 +9,36 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f8ff;
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            color: #333;
             text-align: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .container {
             max-width: 600px;
-            margin: 50px auto;
-            background: #ffffff;
+            margin: 20px;
+            background: rgba(255, 255, 255, 0.9);
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
         }
         #question {
             font-size: 1.5rem;
             margin-bottom: 20px;
-            color: #333333;
         }
         #options button {
             display: block;
             width: 100%;
             margin: 10px 0;
-            padding: 10px;
+            padding: 12px;
             font-size: 1rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
         }
         #options button.correct {
             background-color: #d4edda;
@@ -44,14 +49,35 @@
             color: #721c24;
         }
         #options button:hover {
-            opacity: 0.9;
+            transform: scale(1.03);
         }
         .result {
             margin-top: 20px;
-            padding: 10px;
+            padding: 15px;
             background: #e9ecef;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 1.2rem;
+        }
+        table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background: #f0f8ff;
+        }
+        .correct {
+            background: #d4edda;
+            color: #155724;
+        }
+        .wrong {
+            background: #f8d7da;
+            color: #721c24;
         }
     </style>
 </head>
