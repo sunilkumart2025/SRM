@@ -5,30 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice Test</title>
     <style>
+        /* Dark theme styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #89f7fe, #66a6ff);
-            color: #333;
+            background: #121212;
+            color: #e0e0e0;
             text-align: center;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
         .container {
             max-width: 600px;
             margin: 20px;
-            background: rgba(255, 255, 255, 0.9);
+            background: #1e1e1e;
             padding: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             border-radius: 12px;
         }
+
+        h1 {
+            color: #ff9800;
+            font-size: 2rem;
+        }
+
         #question {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 20px;
         }
+
         #options button {
             display: block;
             width: 100%;
@@ -39,57 +48,89 @@
             border-radius: 8px;
             cursor: pointer;
             transition: transform 0.2s, background-color 0.3s;
+            background: #2b2b2b;
+            color: #e0e0e0;
         }
+
         #options button.correct {
-            background-color: #d4edda;
-            color: #155724;
+            background-color: #4caf50;
+            color: white;
         }
+
         #options button.wrong {
-            background-color: #f8d7da;
-            color: #721c24;
+            background-color: #f44336;
+            color: white;
         }
+
         #options button:hover {
             transform: scale(1.03);
         }
+
         .result {
             margin-top: 20px;
             padding: 15px;
-            background: #e9ecef;
+            background: #1a1a1a;
             border-radius: 8px;
             font-size: 1.2rem;
+            color: #e0e0e0;
         }
+
         table {
             width: 100%;
             margin-top: 10px;
             border-collapse: collapse;
+            background: #1a1a1a;
+            color: #e0e0e0;
         }
+
         th, td {
             padding: 10px;
             text-align: left;
-            border: 1px solid #ddd;
+            border: 1px solid #333;
         }
+
         th {
-            background: #f0f8ff;
+            background: #333;
         }
+
         .correct {
-            background: #d4edda;
-            color: #155724;
+            background: #388e3c;
+            color: white;
         }
+
         .wrong {
-            background: #f8d7da;
-            color: #721c24;
+            background: #d32f2f;
+            color: white;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        footer a {
+            color: #ff9800;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Practice Test</h1>
+        <h1>Tech Test</h1>
         <div>
             <p id="question">Loading...</p>
             <div id="options"></div>
         </div>
         <div id="result" class="result" style="display: none;"></div>
     </div>
+    <footer>
+        Designed for tech enthusiasts - <a href="#">View Source Code</a>
+    </footer>
     <script src="test1_1.js"></script>
 </body>
 </html>
