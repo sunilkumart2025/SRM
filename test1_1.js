@@ -62,20 +62,31 @@ function showResult() {
     const resultDiv = document.getElementById("result");
     resultDiv.style.display = "block";
     resultDiv.innerHTML = `
-        You scored <strong>${score}/${questions.length}</strong>.<br><br>
-        <h3>Question Analysis:</h3>
-        <ol>
-            ${questions
-                .map((q, i) => {
-                    const userCorrect = q.answer === questions[i].answer;
-                    return `<li style="color: ${
-                        userCorrect ? "green" : "red"
-                    };">${q.question} - ${
-                        userCorrect ? "Correct" : "Wrong"
-                    }</li>`;
-                })
-                .join("")}
-        </ol>
+        You scored <strong>${score}/${questions.length}</strong>.
+        <table>
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Your Answer</th>
+                    <th>Correct Answer</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${questions
+                    .map((q, i) => {
+                        const userCorrect =
+                            q.options[q.options.indexOf(q.answer)] === q.answer;
+                        return `<tr class="${
+                            userCorrect ? "correct" : "wrong"
+                        }">
+                            <td>${q.question}</td>
+                            <td>${q.options[q.options.indexOf(q.answer)]}</td>
+                            <td>${q.answer}</td>
+                        </tr>`;
+                    })
+                    .join("")}
+            </tbody>
+        </table>
     `;
 }
 
