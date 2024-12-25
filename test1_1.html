@@ -7,26 +7,62 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
             text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #ffffff;
             padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
         #question {
-            font-size: 20px;
+            font-size: 1.5rem;
             margin-bottom: 20px;
+            color: #333333;
         }
         #options button {
             display: block;
-            margin: 10px auto;
-            padding: 10px 20px;
-            font-size: 16px;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #options button.correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        #options button.wrong {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        #options button:hover {
+            opacity: 0.9;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            font-size: 1.2rem;
         }
     </style>
 </head>
 <body>
-    <h1>Practice Test</h1>
-    <div>
-        <p id="question">Loading...</p>
-        <div id="options"></div>
+    <div class="container">
+        <h1>Practice Test</h1>
+        <div>
+            <p id="question">Loading...</p>
+            <div id="options"></div>
+        </div>
+        <div id="result" class="result" style="display: none;"></div>
     </div>
     <script src="test1_1.js"></script>
 </body>
