@@ -1,170 +1,87 @@
 {
-  "tests": {
     "Maths": {
-      "Test1": [
-        {
-          "question": "What is 2 + 2?",
-          "options": ["3", "4", "5", "6"],
-          "answer": "4"
-        },
-        {
-          "question": "What is 3 * 3?",
-          "options": ["6", "7", "9", "12"],
-          "answer": "9"
-        },
-        {
-          "question": "What is 10 / 2?",
-          "options": ["3", "5", "10", "15"],
-          "answer": "5"
-        },
-        {
-          "question": "What is 7 - 3?",
-          "options": ["2", "3", "4", "5"],
-          "answer": "4"
-        },
-        {
-          "question": "What is the square of 5?",
-          "options": ["15", "20", "25", "30"],
-          "answer": "25"
-        }
-      ],
-      "Test2": [
-        {
-          "question": "What is 8 * 2?",
-          "options": ["12", "14", "16", "18"],
-          "answer": "16"
-        },
-        {
-          "question": "What is 6 / 2?",
-          "options": ["1", "2", "3", "4"],
-          "answer": "3"
-        },
-        {
-          "question": "What is 15 - 5?",
-          "options": ["5", "10", "15", "20"],
-          "answer": "10"
-        },
-        {
-          "question": "What is the cube of 3?",
-          "options": ["6", "9", "27", "81"],
-          "answer": "27"
-        },
-        {
-          "question": "What is the square root of 81?",
-          "options": ["7", "8", "9", "10"],
-          "answer": "9"
-        }
-      ],
-      "Test3": [
-        {
-          "question": "What is 12 - 4?",
-          "options": ["6", "7", "8", "9"],
-          "answer": "8"
-        },
-        {
-          "question": "What is 4 * 5?",
-          "options": ["15", "20", "25", "30"],
-          "answer": "20"
-        },
-        {
-          "question": "What is 20 / 4?",
-          "options": ["4", "5", "6", "7"],
-          "answer": "5"
-        },
-        {
-          "question": "What is 3 + 6?",
-          "options": ["6", "7", "8", "9"],
-          "answer": "9"
-        },
-        {
-          "question": "What is the square root of 64?",
-          "options": ["6", "7", "8", "9"],
-          "answer": "8"
-        }
-      ]
+        "Test1": [
+            {
+                "question": "What is 2 + 2?",
+                "options": ["3", "4", "5", "6"],
+                "answer": "4"
+            },
+            {
+                "question": "What is 5 x 3?",
+                "options": ["15", "10", "20", "25"],
+                "answer": "15"
+            },
+            {
+                "question": "What is 10 - 3?",
+                "options": ["5", "6", "7", "8"],
+                "answer": "7"
+            },
+            {
+                "question": "What is 12 / 4?",
+                "options": ["2", "3", "4", "6"],
+                "answer": "3"
+            },
+            {
+                "question": "What is 6 x 6?",
+                "options": ["30", "36", "42", "48"],
+                "answer": "36"
+            }
+        ],
+        "Test2": [
+            {
+                "question": "What is 3 + 5?",
+                "options": ["5", "7", "8", "10"],
+                "answer": "8"
+            },
+            {
+                "question": "What is 9 - 4?",
+                "options": ["3", "5", "6", "7"],
+                "answer": "5"
+            },
+            {
+                "question": "What is 8 x 7?",
+                "options": ["54", "56", "64", "72"],
+                "answer": "56"
+            },
+            {
+                "question": "What is 16 / 4?",
+                "options": ["3", "4", "5", "6"],
+                "answer": "4"
+            },
+            {
+                "question": "What is 7 + 8?",
+                "options": ["14", "15", "16", "17"],
+                "answer": "15"
+            }
+        ]
     },
     "Physics": {
-      "Test1": [
-        {
-          "question": "What is the unit of force?",
-          "options": ["Newton", "Joule", "Pascal", "Watt"],
-          "answer": "Newton"
-        },
-        {
-          "question": "What is the speed of light?",
-          "options": ["3x10^8 m/s", "5x10^8 m/s", "7x10^8 m/s", "1x10^6 m/s"],
-          "answer": "3x10^8 m/s"
-        },
-        {
-          "question": "What is the acceleration due to gravity?",
-          "options": ["9.8 m/s^2", "8.9 m/s^2", "10 m/s^2", "7.9 m/s^2"],
-          "answer": "9.8 m/s^2"
-        },
-        {
-          "question": "What is the formula for energy?",
-          "options": ["E = mc", "E = mv^2", "E = mc^2", "E = mv"],
-          "answer": "E = mc^2"
-        },
-        {
-          "question": "What is the unit of power?",
-          "options": ["Joule", "Newton", "Watt", "Pascal"],
-          "answer": "Watt"
-        }
-      ],
-      "Test2": [
-        {
-          "question": "What is the unit of pressure?",
-          "options": ["Pascal", "Newton", "Watt", "Joule"],
-          "answer": "Pascal"
-        },
-        {
-          "question": "What is the unit of work?",
-          "options": ["Newton", "Watt", "Joule", "Pascal"],
-          "answer": "Joule"
-        },
-        {
-          "question": "What is the formula for work?",
-          "options": ["W = Fd", "W = mv", "W = mc", "W = ma"],
-          "answer": "W = Fd"
-        },
-        {
-          "question": "What is the value of Planck's constant?",
-          "options": ["6.63x10^-34", "6.63x10^-36", "6.63x10^-30", "6.63x10^-32"],
-          "answer": "6.63x10^-34"
-        },
-        {
-          "question": "What is the SI unit of charge?",
-          "options": ["Coulomb", "Newton", "Joule", "Pascal"],
-          "answer": "Coulomb"
-        }
-      ],
-      "Test3": [
-        {
-          "question": "What is the velocity of sound in air?",
-          "options": ["343 m/s", "300 m/s", "250 m/s", "500 m/s"],
-          "answer": "343 m/s"
-        },
-        {
-          "question": "What is the formula for pressure?",
-          "options": ["P = F/A", "P = mv", "P = ma", "P = Fd"],
-          "answer": "P = F/A"
-        },
-        {
-          "question": "What is the SI unit of energy?",
-          "options": ["Joule", "Newton", "Watt", "Pascal"],
-          "answer": "Joule"
-        },
-        {
-          "question": "What is the formula for force?",
-          "options": ["F = ma", "F = mv", "F = mc", "F = W/A"],
-          "answer": "F = ma"
-        },
-        {
-          "question": "What is the unit of frequency?",
-          "options": ["Hertz", "Newton", "Watt", "Pascal"],
-          "answer": "Hertz"
-        }
-      ]
+        "Test1": [
+            {
+                "question": "What is the speed of light?",
+                "options": ["3x10^8 m/s", "3x10^6 m/s", "3x10^9 m/s", "3x10^7 m/s"],
+                "answer": "3x10^8 m/s"
+            },
+            {
+                "question": "What is the SI unit of force?",
+                "options": ["Newton", "Pascal", "Joule", "Watt"],
+                "answer": "Newton"
+            },
+            {
+                "question": "What is the acceleration due to gravity on Earth?",
+                "options": ["9.8 m/s^2", "10 m/s^2", "9.5 m/s^2", "8 m/s^2"],
+                "answer": "9.8 m/s^2"
+            },
+            {
+                "question": "Who proposed the theory of relativity?",
+                "options": ["Isaac Newton", "Albert Einstein", "Galileo Galilei", "Nikola Tesla"],
+                "answer": "Albert Einstein"
+            },
+            {
+                "question": "What is the formula for kinetic energy?",
+                "options": ["1/2 mv^2", "mv", "mgh", "1/2 mv"],
+                "answer": "1/2 mv^2"
+            }
+        ]
     }
-  }
 }
