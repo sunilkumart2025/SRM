@@ -5,24 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice Test</title>
     <style>
-        /* Dark theme styles */
+        /* Dark theme with background visuals */
         body {
             font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: #121212;
+            background: url('https://www.transparenttextures.com/patterns/dark-denim.png'), linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background-size: cover;
             color: #e0e0e0;
             text-align: center;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
 
         .container {
             max-width: 600px;
             margin: 20px;
-            background: #1e1e1e;
+            background: rgba(30, 30, 30, 0.95);
             padding: 20px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             border-radius: 12px;
@@ -69,7 +71,7 @@
         .result {
             margin-top: 20px;
             padding: 15px;
-            background: #1a1a1a;
+            background: rgba(20, 20, 20, 0.95);
             border-radius: 8px;
             font-size: 1.2rem;
             color: #e0e0e0;
@@ -102,21 +104,6 @@
             background: #d32f2f;
             color: white;
         }
-
-        footer {
-            margin-top: 20px;
-            font-size: 0.8rem;
-            color: #888;
-        }
-
-        footer a {
-            color: #ff9800;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
@@ -128,9 +115,6 @@
         </div>
         <div id="result" class="result" style="display: none;"></div>
     </div>
-    <footer>
-        Designed for tech enthusiasts - <a href="#">View Source Code</a>
-    </footer>
     <script src="test1_1.js"></script>
 </body>
 </html>
