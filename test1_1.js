@@ -1,100 +1,65 @@
+const questionContainer = document.getElementById("question");
+const optionsContainer = document.getElementById("options");
+const resultContainer = document.getElementById("result");
+
 let currentQuestionIndex = 0;
 let score = 0;
-let questions = [];
+let selectedAnswers = [];
 
-async function loadQuestions(subject, test) {
-    try {
-        const response = await fetch("questions1_1.json");
-        const data = await response.json();
-        if (data[subject] && data[subject][test]) {
-            questions = data[subject][test];
-            showQuestion();
-        } else {
-            document.getElementById("question").innerText = "Test not found!";
-        }
-    } catch (error) {
-        document.getElementById("question").innerText = "Failed to load questions!";
-        console.error(error);
-    }
+async function loadQuestions() {
+    const response = await fetch("questions1_1.json");
+    const questions = await response.json();
+    return questions;
 }
 
-function showQuestion() {
-    if (currentQuestionIndex < questions.length) {
-        const question = questions[currentQuestionIndex];
-        document.getElementById("question").innerText = question.question;
-        const options = document.getElementById("options");
-        options.innerHTML = "";
-        question.options.forEach((option, index) => {
-            const button = document.createElement("button");
-            button.innerText = option;
-            button.onclick = () => checkAnswer(index);
-            options.appendChild(button);
-        });
-    } else {
-        showResult();
-    }
-}
+function renderQuestion(question) {
+    questionContainer.textContent = question.text;
+    optionsContainer.innerHTML = "";
 
-function checkAnswer(selectedIndex) {
-    const question = questions[currentQuestionIndex];
-    const correctIndex = question.options.indexOf(question.answer);
-    const options = document.getElementById("options").children;
+    question.options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.textContent = option;
+        button.onclick = () => {
+            selectedAnswers.push({ 
+                question: question.text, 
+                correct: option === question.answer, 
+                selected: option,
+                correctAnswer: question.answer 
+            });
 
-    Array.from(options).forEach((btn, index) => {
-        if (index === correctIndex) {
-            btn.classList.add("correct");
-        } else if (index === selectedIndex) {
-            btn.classList.add("wrong");
-        }
-        btn.disabled = true;
+            if (option === question.answer) score++;
+
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                renderQuestion(questions[currentQuestionIndex]);
+            } else {
+                showResult();
+            }
+        };
+        optionsContainer.appendChild(button);
     });
 
-    if (selectedIndex === correctIndex) {
-        score++;
-    }
-
-    currentQuestionIndex++;
-    setTimeout(showQuestion, 1000);
+    // Scroll to top for smooth UX
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function showResult() {
-    document.getElementById("question").innerText = "Test Completed!";
-    const resultDiv = document.getElementById("result");
-    resultDiv.style.display = "block";
-    resultDiv.innerHTML = `
-        You scored <strong>${score}/${questions.length}</strong>.
-        <table>
-            <thead>
-                <tr>
-                    <th>Question</th>
-                    <th>Your Answer</th>
-                    <th>Correct Answer</th>
-                </tr>
-            </thead>
-            <tbody>
-                ${questions
-                    .map((q, i) => {
-                        const userCorrect =
-                            q.options[q.options.indexOf(q.answer)] === q.answer;
-                        return `<tr class="${
-                            userCorrect ? "correct" : "wrong"
-                        }">
-                            <td>${q.question}</td>
-                            <td>${q.options[q.options.indexOf(q.answer)]}</td>
-                            <td>${q.answer}</td>
-                        </tr>`;
-                    })
-                    .join("")}
-            </tbody>
-        </table>
-    `;
+    questionContainer.style.display = "none";
+    optionsContainer.style.display = "none";
+    resultContainer.style.display = "block";
+
+    let resultHTML = `<h2>Your Score: ${score}/${questions.length}</h2><table><thead><tr><th>Question</th><th>Your Answer</th><th>Correct Answer</th></tr></thead><tbody>`;
+    selectedAnswers.forEach((answer) => {
+        const rowClass = answer.correct ? "correct" : "wrong";
+        resultHTML += `<tr class="${rowClass}"><td>${answer.question}</td><td>${answer.selected}</td><td>${answer.correctAnswer}</td></tr>`;
+    });
+    resultHTML += "</tbody></table>";
+    resultContainer.innerHTML = resultHTML;
 }
 
-const urlParams = new URLSearchParams(window.location.search);
-const subject = urlParams.get("subject");
-const test = urlParams.get("test");
-if (subject && test) {
-    loadQuestions(subject, test);
-} else {
-    document.getElementById("question").innerText = "Select a valid test!";
-}
+let questions = [];
+
+loadQuestions().then((data) => {
+    questions = data;
+    renderQuestion(questions[currentQuestionIndex]);
+});
