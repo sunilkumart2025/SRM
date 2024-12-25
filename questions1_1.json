@@ -26,33 +26,6 @@
                 "options": ["30", "36", "42", "48"],
                 "answer": "36"
             }
-        ],
-        "Test2": [
-            {
-                "question": "What is 3 + 5?",
-                "options": ["5", "7", "8", "10"],
-                "answer": "8"
-            },
-            {
-                "question": "What is 9 - 4?",
-                "options": ["3", "5", "6", "7"],
-                "answer": "5"
-            },
-            {
-                "question": "What is 8 x 7?",
-                "options": ["54", "56", "64", "72"],
-                "answer": "56"
-            },
-            {
-                "question": "What is 16 / 4?",
-                "options": ["3", "4", "5", "6"],
-                "answer": "4"
-            },
-            {
-                "question": "What is 7 + 8?",
-                "options": ["14", "15", "16", "17"],
-                "answer": "15"
-            }
         ]
     },
     "Physics": {
