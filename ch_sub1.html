@@ -20,8 +20,34 @@
             background: linear-gradient(90deg, #6272a4, #44475a);
             color: white;
             padding: 20px;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-button {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            background: #44475a;
+            transition: background 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: #ff79c6;
         }
 
         .container {
@@ -42,14 +68,14 @@
 
         .subject-buttons {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 20px;
-            justify-content: center;
+            align-items: center;
             margin-bottom: 30px;
         }
 
         .subject-button {
-            width: 150px;
+            width: 300px;
             background: linear-gradient(90deg, #6272a4, #44475a);
             color: white;
             text-decoration: none;
@@ -92,28 +118,25 @@
 </head>
 <body>
     <header>
-        <h1>Choose Your Subject</h1>
+        <h1>SKY</h1>
+        <div class="nav-buttons">
+            <a href="#" class="nav-button">Home</a>
+            <a href="#" class="nav-button">Developer</a>
+            <a href="#" class="nav-button">Contribute</a>
+        </div>
     </header>
     <div class="container">
         <h2>Select Your Subject Below</h2>
         <div class="subject-buttons">
-            <a href="#" class="subject-button">21GNH101J
-Philosophy of Engineering</a>
-            <a href="#" class="subject-button">21MAB101T
-Calculus and Linear Algebra</a>
+            <a href="#" class="subject-button">21GNH101J Philosophy of Engineering</a>
+            <a href="#" class="subject-button">21MAB101T Calculus and Linear Algebra</a>
             <a href="#" class="subject-button">21CYB101J Chemistry</a>
-            <a href="#" class="subject-button">218TB1027
-Introduction to Computational Biology</a>
-            <a href="#" class="subject-button">21CSS101J
-Programming for Problem Solving</a>
-            <a href="#" class="subject-button">21PDM101L
-Professional Skills and Practices</a>
-            <a href="#" class="subject-button">21MES101L
-Basic Civil and Mechanical Workshop</a>
-            <a href="#" class="subject-button">21LEH103T
-French</a>
-            <a href="#" class="subject-button">21LEH104T
-German</a>
+            <a href="#" class="subject-button">218TB1027 Introduction to Computational Biology</a>
+            <a href="#" class="subject-button">21CSS101J Programming for Problem Solving</a>
+            <a href="#" class="subject-button">21PDM101L Professional Skills and Practices</a>
+            <a href="#" class="subject-button">21MES101L Basic Civil and Mechanical Workshop</a>
+            <a href="#" class="subject-button">21LEH103T French</a>
+            <a href="#" class="subject-button">21LEH104T German</a>
         </div>
         <a href="ch_sem.html" class="back-button">Go Back to Semester</a>
     </div>
