@@ -11,6 +11,8 @@
             padding: 0;
             background-color: #1e1e2f;
             color: white;
+            overflow: hidden; /* To prevent scrollbars due to floating visuals */
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         header {
             background-color: #282a36;
@@ -68,12 +70,12 @@
             border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px #8be9fd, 0 0 20px #ff79c6;
+            box-shadow: 0 0 5px #8be9fd, 0 0 10px #ff79c6;
         }
         .container button:hover {
             transform: scale(1.1);
             background: linear-gradient(90deg, #50fa7b, #ffb86c);
-            box-shadow: 0 0 15px #ffb86c, 0 0 25px #50fa7b;
+            box-shadow: 0 0 10px #ffb86c, 0 0 15px #50fa7b;
         }
         footer {
             background: #21222c;
@@ -81,30 +83,82 @@
             text-align: center;
             padding: 10px 0;
         }
-        /* Inner Animation */
-        .inner-animation {
-            position: absolute;
+        /* Floating Button */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #50fa7b;
+            color: black;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+            background: #ffb86c;
+        }
+        .light-mode {
+            background-color: #f2f2f2;
+            color: black;
+        }
+        .light-mode header {
+            background-color: #e0e0e0;
+        }
+        .light-mode nav {
+            background: #d9d9d9;
+        }
+        .light-mode .container {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        .light-mode nav a {
+            color: black;
+        }
+        .light-mode nav a:hover {
+            background: #50fa7b;
+            color: black;
+        }
+        /* Background Visuals */
+        .background-visuals {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(255, 121, 198, 0.3), rgba(139, 233, 253, 0.3), rgba(80, 250, 123, 0.3));
-            background-size: 200% 200%;
-            animation: gradientRotate 6s infinite linear;
             z-index: -1;
+            overflow: hidden;
         }
-        @keyframes gradientRotate {
+        .background-visuals span {
+            position: absolute;
+            display: block;
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float 10s infinite;
+        }
+        .background-visuals span:nth-child(odd) {
+            animation-duration: 8s;
+        }
+        @keyframes float {
             0% {
-                background-position: 0% 50%;
+                transform: translateY(0) rotate(0);
             }
             50% {
-                background-position: 100% 50%;
+                transform: translateY(-30px) rotate(180deg);
             }
             100% {
-                background-position: 0% 50%;
+                transform: translateY(0) rotate(360deg);
             }
         }
-        /* Responsive Design */
         @media (max-width: 768px) {
             nav .branding {
                 font-size: 24px;
@@ -139,19 +193,34 @@
         </div>
     </nav>
     <div class="container">
-        <div class="inner-animation"></div>
         <p>Learn smarter, not harder! Dive into curated notes designed for your success. 📖🌟</p>
-        <p>Every page you read adds to your knowledge. Study today, shine tomorrow!</p>
         <button onclick="window.location.href='ch_sem.html'">Study Material</button>
     </div>
     <div class="container">
-        <div class="inner-animation"></div>
         <p>Challenge yourself! Each question is a step closer to your dream. Practice, improve, and succeed! 💪✨</p>
-        <p>Your future is created by what you do today. Start practicing now and shape your success!</p>
         <button onclick="window.location.href='#practice for exam'">Practice for Exam</button>
     </div>
     <footer>
         <p>&copy; 2024 SRMIST Study Resources. All rights reserved.</p>
     </footer>
+    <div class="background-visuals">
+        <span style="top: 10%; left: 15%;"></span>
+        <span style="top: 20%; left: 70%;"></span>
+        <span style="top: 60%; left: 40%;"></span>
+        <span style="top: 80%; left: 10%;"></span>
+        <span style="top: 90%; left: 80%;"></span>
+    </div>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('light-mode');
+            const toggleButton = document.querySelector('.dark-mode-toggle');
+            if (document.body.classList.contains('light-mode')) {
+                toggleButton.textContent = '☀️';
+            } else {
+                toggleButton.textContent = '🌙';
+            }
+        }
+    </script>
 </body>
 </html>
