@@ -99,7 +99,7 @@
             margin: 120px 20px 20px; /* Adjust for fixed header */
         }
 
-        .intro, .tech, .projects, .contribute, .contact {
+        .intro, .tech, .projects, .contribute, .contact, .form-section {
             background-color: white;
             padding: 30px;
             border-radius: 10px;
@@ -170,45 +170,20 @@
             background-color: #0056b3;
         }
 
-        /* Developer Section Styles */
-        .developer-list {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .developer-item {
-            text-align: center;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 200px;
-            transition: transform 0.3s ease;
-        }
-
-        .developer-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .developer-item img {
-            width: 100%;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .developer-item h4 {
-            margin: 10px 0;
+        /* Form Section */
+        .form-section a {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
             font-size: 1.2rem;
-            color: #007bff;
+            border-radius: 8px;
         }
 
-        .developer-item p {
-            font-size: 1rem;
-            color: #555;
+        .form-section a:hover {
+            background-color: #45a049;
         }
 
         /* Responsive Design */
@@ -224,11 +199,6 @@
 
             section {
                 margin: 120px 15px 15px;
-            }
-
-            .developer-list {
-                flex-direction: column;
-                align-items: center;
             }
         }
     </style>
@@ -308,9 +278,15 @@
     <!-- Contact Section -->
     <section class="contact">
         <h2>Contact Us</h2>
-        <p>If you're interested in joining our developer community or have any questions, feel free to reach out to us!</p>
-        <a href="mailto:developer@srmist.edu.in" class="btn">Contact Us</a>
+        <p>Have questions or suggestions? Reach out to us via email at <strong>srmist@developerhub.com</strong>.</p>
     </section>
-    
+
+    <!-- Google Form Section -->
+    <section class="form-section">
+        <h2>Join the SRMIST Developer Hub!</h2>
+        <p>Fill out the application form to become a part of our growing community of developers and contributors.</p>
+        <a href="https://forms.google.com/your-form-link" target="_blank">Apply Now</a>
+    </section>
+
 </body>
 </html>
