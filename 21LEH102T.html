@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Language/</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e2f;
+            color: white;
+        }
+        header {
+            background-color: #282a36;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #21222c;
+            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        nav .branding {
+            font-size: 28px;
+            font-weight: bold;
+            color: #50fa7b;
+            text-shadow: 0 0 10px #50fa7b, 0 0 20px #50fa7b;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background: #ffb86c;
+            color: black;
+            transform: scale(1.1);
+        }
+        .container {
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            width: 80%;
+            margin: 50px auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #44475a;
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #8be9fd;
+        }
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .section ul li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: linear-gradient(90deg, #6272a4, #44475a);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .section ul li:hover {
+            background: linear-gradient(90deg, #ffb86c, #f1fa8c);
+            transform: translateY(-5px);
+        }
+        .section ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+            background: #50fa7b;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .section ul li a:hover {
+            background: #ff5555;
+            color: black;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .navigation-buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .navigation-buttons a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(90deg, #6272a4, #44475a);
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: buttonGlow 2s infinite alternate;
+        }
+        .navigation-buttons a:hover {
+            background: linear-gradient(90deg, #ffb86c, #f1fa8c);
+            transform: scale(1.1);
+        }
+        @keyframes buttonGlow {
+            0% {
+                box-shadow: 0 0 10px #50fa7b;
+            }
+            100% {
+                box-shadow: 0 0 20px #50fa7b;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SRM Study Hub - 21LEH102T</h1>
+    </header>
+    <nav>
+        <div class="branding">SKY</div>
+        <div>
+            <a href="https://sky-phi.vercel.app/">Home</a>
+            <a href="developer.html">Developer</a>
+            <a href="#">Contribute</a>
+        </div>
+    </nav>
+  <div class="container">
+    <h1>Chinese Language</h1>
+  </div>
+    <div class="container">
+        <div class="section">
+            <h2>Previous Year Questions</h2>
+            <ul>
+                <li>
+                    2020 <a href="#">Open</a>
+                </li>
+                <li>
+                    2021 <a href="YOUR_DRIVE_LINK_2021">Open</a>
+                </li>
+                <li>
+                    2022 <a href="YOUR_DRIVE_LINK_2022">Open</a>
+                </li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Notes</h2>
+            <ul>
+                <li>
+                    Module 1 <a href="#">Open</a>
+                </li>
+                <li>
+                    Module 2 <a href="YOUR_DRIVE_LINK_MODULE2">Open</a>
+                </li>
+                <li>
+                    Module 3 <a href="YOUR_DRIVE_LINK_MODULE3">Open</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="navigation-buttons">
+        <a href="#">Go Back to Subjects</a>
+        <a href="#">Go Back to Semesters</a>
+    </div>
+</body>
+</html>
