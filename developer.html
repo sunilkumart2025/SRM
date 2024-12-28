@@ -13,9 +13,22 @@
             padding: 0;
             background: linear-gradient(135deg, #f4f7fc, #d1e3f1); /* Visual Gradient Background */
             color: #333;
+            animation: backgroundAnim 10s infinite alternate;
         }
 
-        /* Header Styles */
+        @keyframes backgroundAnim {
+            0% {
+                background: linear-gradient(135deg, #f4f7fc, #d1e3f1);
+            }
+            50% {
+                background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            }
+            100% {
+                background: linear-gradient(135deg, #6a11cb, #2575fc);
+            }
+        }
+
+        /* Header with Sky Effect */
         header {
             background: linear-gradient(135deg, #0099cc, #00b3e6);
             color: white;
@@ -24,19 +37,54 @@
             position: fixed;
             width: 100%;
             top: 0;
+            left: 0;
             z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: headerAnim 1.5s ease-in-out;
+        }
+
+        @keyframes headerAnim {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
         }
 
         header h1 {
             margin: 0;
             font-size: 2.5rem;
+            letter-spacing: 2px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Sky Title Animation */
+        header h1 {
+            color: white;
+            font-size: 2.5rem;
+            animation: skyTitle 2s ease-out infinite alternate;
+        }
+
+        @keyframes skyTitle {
+            0% {
+                text-shadow: 0 0 10px rgba(0, 0, 255, 0.8), 0 0 20px rgba(0, 0, 255, 0.8);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.8);
+            }
+        }
+
+        /* Navigation Bar */
+        nav {
+            margin-top: 20px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
             padding: 10px 20px;
+            margin: 0 15px;
             border-radius: 5px;
             background-color: #0056b3;
             transition: background-color 0.3s ease;
@@ -48,10 +96,10 @@
 
         /* Page Content */
         section {
-            margin: 120px 20px 20px;
+            margin: 120px 20px 20px; /* Adjust for fixed header */
         }
 
-        .intro, .tech, .projects, .contribute, .contact, .form-section {
+        .intro, .tech, .projects, .contribute, .contact {
             background-color: white;
             padding: 30px;
             border-radius: 10px;
@@ -62,6 +110,51 @@
         h2 {
             color: #333;
             font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #007bff;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .tech ul, .projects ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tech li, .projects li {
+            padding: 8px 0;
+            font-size: 1.1rem;
+        }
+
+        .projects img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .projects img:hover {
+            transform: scale(1.05);
+        }
+
+        .contribute ol {
+            padding: 0;
+            font-size: 1.1rem;
+        }
+
+        .contribute li {
+            padding: 10px 0;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
         }
 
         .btn {
@@ -93,23 +186,42 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 200px;
-        }
-
-        .developer-item img {
-            width: 150px; /* Reduced image width */
-            height: 150px; /* Reduced image height */
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
 
-        .developer-item img:hover {
-            transform: scale(1.1); /* Slight hover effect */
+        .developer-item:hover {
+            transform: translateY(-10px);
         }
 
+        .developer-item img {
+            width: 100%;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .developer-item h4 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #007bff;
+        }
+
+        .developer-item p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            nav a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+
             section {
                 margin: 120px 15px 15px;
             }
@@ -122,6 +234,8 @@
     </style>
 </head>
 <body>
+
+    <!-- Header Section -->
     <header>
         <h1>Sky Digital Hub</h1>
         <nav>
@@ -131,11 +245,13 @@
         </nav>
     </header>
 
+    <!-- Intro Section -->
     <section id="home" class="intro">
         <h2>Welcome to the SRM Study Hub!</h2>
-        <p>Whether you're a beginner or an experienced coder, this is the place where you can connect with fellow developers, learn new skills, and contribute to exciting projects.</p>
+        <p>Whether you're a beginner or an experienced coder, this is the place where you can connect with fellow developers, learn new skills, and contribute to exciting projects. Join us in shaping the future of tech at SRMIST!</p>
     </section>
 
+    <!-- Developer Team Section -->
     <section id="developer" class="developer-list">
         <h2>Meet Our Developers</h2>
         <div class="developer-item">
@@ -153,34 +269,52 @@
             <h4>NAVEEN</h4>
             <p>SA0003</p>
         </div>
+        <div class="developer-item">
+            <img src="developer4.jpg" alt="Developer 4">
+            <h4>Anna Patel</h4>
+            <p>Reg No: 44556</p>
+        </div>
+        <div class="developer-item">
+            <img src="developer5.jpg" alt="Developer 5">
+            <h4>Chris Wong</h4>
+            <p>Reg No: 78901</p>
+        </div>
     </section>
 
+    <!-- Technologies We Work With Section -->
     <section class="tech">
         <h2>Technologies We Work With</h2>
         <ul>
-            <li><strong>Front-End:</strong> HTML, CSS, JavaScript</li>
-            <li><strong>Back-End:</strong> Node.js, Python</li>
-            <li><strong>Mobile Development:</strong> Flutter</li>
+            <li><strong>Front-End:</strong> HTML, CSS, JavaScript, React</li>
+            <li><strong>Back-End:</strong> Node.js, Python, Django</li>
+            <li><strong>Mobile Development:</strong> Flutter, React Native</li>
+            <li><strong>Cloud:</strong> AWS, Firebase</li>
+            <li><strong>Version Control:</strong> Git, GitHub</li>
         </ul>
     </section>
 
+    <!-- Contributor Section -->
     <section id="contribute" class="contribute">
         <h2>How You Can Contribute</h2>
         <ol>
-            <li>Submit ideas for projects.</li>
-            <li>Fix bugs.</li>
+            <li>Submit your ideas for new projects.</li>
+            <li>Help us fix bugs in existing projects.</li>
+            <li>Improve our documentation.</li>
+            <li>Suggest new features for the projects.</li>
+            <li>Participate in hackathons and coding challenges.</li>
         </ol>
     </section>
 
+    <!-- Contact Section -->
     <section class="contact">
         <h2>Contact Us</h2>
+        <p>If you're interested in joining our developer community or have any questions, feel free to reach out to us!</p>
         <a href="mailto:developer@srmist.edu.in" class="btn">Contact Us</a>
     </section>
-
-    <section class="form-section">
+    <section class="contact">
         <h2>Join the SRMIST Developer Hub!</h2>
-        <p>Fill out the application form to become a part of our growing community.</p>
-        <a href="https://forms.google.com/your-form-link" target="_blank" class="btn">Apply Now</a>
+        <p>Take the first step towards becoming an integral part of our dynamic and ever-growing community of innovators and learners. Fill out the application form today and unlock opportunities to collaborate, contribute, and grow alongside passionate individuals who are shaping the future of technology at SRMIST!</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScLb8eugI6UKjO-g2Fchrjiwf2Jm0cneVyKT-6Ee3edxsXXgQ/viewform?usp=header" class="btn">Apply Now</a>
     </section>
 </body>
 </html>
