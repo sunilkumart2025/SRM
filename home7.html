@@ -6,18 +6,33 @@
     <title>SRM Study Hub</title>
     <style>
     
+    
+        body {
+            margin: 0; /* Remove default margin */
+            display: flex;
+            justify-content: center; /* Center the content horizontally */
+            align-items: center; /* Center the content vertically */
+            height: 100vh; /* Full viewport height */
+            text-align: center;
+        }
+
         header {
             display: flex;
-            align-items: center;
-            gap: 10px; /* Space between logo and text */
+            flex-direction: column; /* Stack logo and text vertically */
+            align-items: center; /* Center items horizontally */
+            gap: 10px; /* Space between logo and title */
         }
+
         header img {
-            height: 50px; /* Adjust height as needed */
+            height: 100px; /* Adjust logo size */
         }
-          header h1 {
+
+        header h1 {
             margin: 0;
-            font-size: 24px; /* Adjust font size */
+            font-size: 32px; /* Adjust font size */
         }
+
+
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
