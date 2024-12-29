@@ -7,30 +7,31 @@
     <style>
     
     
-        body {
-            margin: 0; /* Remove default margin */
-            display: flex;
-            justify-content: center; /* Center the content horizontally */
-            align-items: center; /* Center the content vertically */
-            height: 100vh; /* Full viewport height */
-            text-align: center;
-        }
+       
+    /* Ensure this only affects the header */
+    header {
+        width: 100%; /* Full-width header */
+        text-align: center; /* Center content horizontally */
+        background-color: #f0f0f0; /* Optional: Add a background color */
+        padding: 20px 0; /* Space above and below the header */
+    }
 
-        header {
-            display: flex;
-            flex-direction: column; /* Stack logo and text vertically */
-            align-items: center; /* Center items horizontally */
-            gap: 10px; /* Space between logo and title */
-        }
+    .header-content {
+        display: inline-flex; /* Keep items inline */
+        align-items: center; /* Vertically align items */
+        gap: 10px; /* Space between logo and title */
+    }
 
-        header img {
-            height: 100px; /* Adjust logo size */
-        }
+    .logo {
+        height: 50px; /* Adjust logo size */
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 32px; /* Adjust font size */
-        }
+    header h1 {
+        margin: 0;
+        font-size: 24px; /* Adjust text size */
+        font-family: Arial, sans-serif; /* Optional: Change font */
+    }
+
 
 
         body {
@@ -209,8 +210,10 @@
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Sky Teach Logo" style="height: 50px;">
-        <h1>SRM Study Hub-CSE</h1>
+       <div class="header-content">
+        <img src="images/sky-teach-logo.png" alt="Sky Teach Logo" class="logo">
+        <h1>SKY Study Hub-IT</h1>
+    </div>
     </header>
     <nav>
         <div class="branding">SKY</div>
