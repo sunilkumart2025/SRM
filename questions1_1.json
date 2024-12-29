@@ -27,6 +27,62 @@
                 "answer": "36"
             }
         ]
+
+         "Test2": [
+            {
+                "question": "What is 2 + 2?",
+                "options": ["3", "4", "5", "6"],
+                "answer": "4"
+            },
+            {
+                "question": "What is 5 x 3?",
+                "options": ["15", "10", "20", "25"],
+                "answer": "15"
+            },
+            {
+                "question": "What is 10 - 3?",
+                "options": ["5", "6", "7", "8"],
+                "answer": "7"
+            },
+            {
+                "question": "What is 12 / 4?",
+                "options": ["2", "3", "4", "6"],
+                "answer": "3"
+            },
+            {
+                "question": "What is 6 x 6?",
+                "options": ["30", "36", "42", "48"],
+                "answer": "36"
+            }
+        ]
+
+         "Test3": [
+            {
+                "question": "Which of the following is a thermosetting polymer?",
+                "options": [" Polystyrene", "Polyolefins", "Nylons", "Phenolic resins"],
+                "answer": "Phenolic resins"
+            },
+            {
+                "question": "Which of the following monomers are unsuitable for condensation polymerization?",
+                "options": ["Propanoic acid and ethanol", "Butane-dioic acid and glycol", "Diamines and dicarboxylic acids", "Hydroxy acids"],
+                "answer": "Propanoic acid and ethanol"
+            },
+            {
+                "question": "Which of the following kind of polymers are known for their high crystallinity?",
+                "options": ["Isotactic", "Syndiotactic", "Atactic", "None of the mentioned"],
+                "answer": "Isotactic"
+            },
+            {
+                "question": "What is 12 / 4?",
+                "options": ["2", "3", "4", "6"],
+                "answer": "3"
+            },
+            {
+                "question": "What is 6 x 6?",
+                "options": ["30", "36", "42", "48"],
+                "answer": "36"
+            }
+        ]
     },
     "Physics": {
         "Test1": [
