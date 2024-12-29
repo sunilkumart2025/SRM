@@ -106,7 +106,16 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 40px;
         }
+         .developer-photo {
+    border: 5px solid violet; /* Adjust the thickness of the border as needed */
+    border-radius: 50%; /* Makes the border circular */
+    width: 150px; /* Adjust size of the image */
+    height: 150px; /* Adjust size of the image */
+    object-fit: cover; /* Ensures the image fits well within the circular frame */
+}
 
+
+        
         h2 {
             color: #333;
             font-size: 2rem;
@@ -255,7 +264,7 @@
     <section id="developer" class="developer-list">
         <h2>Meet Our Developers</h2>
         <div class="developer-item">
-            <img src="sunil.jpg" alt="Developer 1">
+            <img src="sunil.jpg" alt="Developer 1" class="developer-photo">
             <h4>SUNILKUMAR</h4>
             <p>SA0001</p>
         </div>
