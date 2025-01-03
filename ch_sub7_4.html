@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Subject</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e1e2f, #282a36);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(90deg, #6272a4, #44475a);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-button {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            background: #44475a;
+            transition: background 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: #ff79c6;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            width: 80%;
+            margin: 50px auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .container h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #8be9fd;
+        }
+
+        .subject-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .subject-button {
+            width: 300px;
+            background: linear-gradient(90deg, #6272a4, #44475a);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            border: none;
+            padding: 15px 20px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .subject-button:hover {
+            transform: scale(1.1) rotate(3deg);
+            background: linear-gradient(90deg, #ffb86c, #f1fa8c);
+            box-shadow: 0 6px 20px rgba(255, 184, 108, 0.5);
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background: #ff5555;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #ff6e6e;
+            box-shadow: 0 6px 15px rgba(255, 110, 110, 0.4);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SKY</h1>
+        <div class="nav-buttons">
+            <a href="https://sky-phi.vercel.app/" class="nav-button">Home</a>
+            <a href="develoer7.html" class="nav-button">Developer</a>
+            <a href="contribute7.html" class="nav-button">Contribute</a>
+        </div>
+    </header>
+    <div class="container">
+        <h3>Semester2: Information Technology</h3>
+        <p>Welcome to a new and exciting phase of your academic journey in Information Technology! Here is a carefully crafted list of subjects for your first semester, tailored to establish a strong foundation and prepare you with the key skills needed to succeed in the dynamic realm of technology and innovation.</p>
+    </div>
+    <div class="container">
+        <h2>Select Your Subject Below</h2>
+        <div class="subject-buttons">
+            <a href="21MAB204T.html" class="subject-button">21MAB204T Probability and Queueing Theory </a>
+            <a href="21CSC204J.html" class="subject-button">21CSC204J Design and Analysis of Algorithms</a>
+            <a href="21CSC205P.html" class="subject-button">21CSC205P Database Management Systems</a>
+            <a href="21CSC206T.html" class="subject-button">21CSC206T Artificial Intelligence</a>
+            <a href="21PDH201T.html" class="subject-button">21PDH201T Social Engineering</a>
+            <a href="21PDM202L.html" class="subject-button">21PDM202L Critical and Creative Thinking Skills</a>
+        </div>
+        <div class="container">
+            <h2>Important Note 📝</h2>
+            <p>The subjects and their respective subject codes listed here are based on the latest update of Regulations 2021 Academic Curricula. Please ensure you cross-check with the official academic handbook or your department for any changes or updates.</p>
+        </div>
+        <a href="ch_sem7.html" class="back-button">Go Back to Semester</a>
+    </div>
+</body>
+</html>
