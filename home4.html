@@ -35,7 +35,6 @@
             padding: 0;
             background-color: #1e1e2f;
             color: white;
-            overflow: hidden; /* To prevent scrollbars due to floating visuals */
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
@@ -116,57 +115,6 @@
             color: white;
             text-align: center;
             padding: 10px 0;
-        }
-
-        /* Floating Button */
-        .dark-mode-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #50fa7b;
-            color: black;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .dark-mode-toggle:hover {
-            transform: scale(1.1);
-            background: #ffb86c;
-        }
-
-        .light-mode {
-            background-color: #f2f2f2;
-            color: black;
-        }
-
-        .light-mode header {
-            background-color: #e0e0e0;
-        }
-
-        .light-mode nav {
-            background: #d9d9d9;
-        }
-
-        .light-mode .container {
-            background: rgba(0, 0, 0, 0.05);
-        }
-
-        .light-mode nav a {
-            color: black;
-        }
-
-        .light-mode nav a:hover {
-            background: #50fa7b;
-            color: black;
         }
 
         /* Background Visuals */
@@ -281,11 +229,5 @@
         <span style="top: 20%; left: 60%; animation-delay: 6s;"></span>
         <span style="top: 50%; left: 20%; animation-delay: 8s;"></span>
     </div>
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌓</button>
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('light-mode');
-        }
-    </script>
 </body>
 </html>
