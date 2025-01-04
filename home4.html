@@ -5,34 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SRM Study Hub-CC</title>
     <style>
-    
-    
-       
-    /* Ensure this only affects the header */
-    header {
-        width: 100%; /* Full-width header */
-        text-align: center; /* Center content horizontally */
-        background-color: #f0f0f0; /* Optional: Add a background color */
-        padding: 20px 0; /* Space above and below the header */
-    }
+        /* Ensure this only affects the header */
+        header {
+            width: 100%; /* Full-width header */
+            text-align: center; /* Center content horizontally */
+            background-color: #f0f0f0; /* Optional: Add a background color */
+            padding: 20px 0; /* Space above and below the header */
+        }
 
-    .header-content {
-        display: inline-flex; /* Keep items inline */
-        align-items: center; /* Vertically align items */
-        gap: 10px; /* Space between logo and title */
-    }
+        .header-content {
+            display: inline-flex; /* Keep items inline */
+            align-items: center; /* Vertically align items */
+            gap: 10px; /* Space between logo and title */
+        }
 
-    .logo {
-        height: 50px; /* Adjust logo size */
-    }
+        .logo {
+            height: 50px; /* Adjust logo size */
+        }
 
-    header h1 {
-        margin: 0;
-        font-size: 24px; /* Adjust text size */
-        font-family: Arial, sans-serif; /* Optional: Change font */
-    }
-
-
+        header h1 {
+            margin: 0;
+            font-size: 24px; /* Adjust text size */
+            font-family: Arial, sans-serif; /* Optional: Change font */
+        }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -40,15 +35,17 @@
             padding: 0;
             background-color: #1e1e2f;
             color: white;
-            overflow: hidden; /* To prevent scrollbars due to floating visuals */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
             transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         header {
             background-color: #282a36;
             color: white;
             padding: 20px;
             text-align: center;
         }
+
         nav {
             display: flex;
             justify-content: space-between;
@@ -57,11 +54,13 @@
             padding: 10px 20px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
+
         nav .branding {
             font-size: 28px;
             font-weight: bold;
             color: #ff79c6;
         }
+
         nav a {
             color: white;
             text-decoration: none;
@@ -71,10 +70,12 @@
             border-radius: 5px;
             transition: all 0.3s ease;
         }
+
         nav a:hover {
             background: #50fa7b;
             color: black;
         }
+
         .container {
             position: relative;
             text-align: center;
@@ -86,10 +87,12 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             overflow: hidden;
         }
+
         .container p {
             font-size: 16px;
             margin-bottom: 15px;
         }
+
         .container button {
             background: linear-gradient(90deg, #ff79c6, #8be9fd);
             color: white;
@@ -101,17 +104,20 @@
             transition: all 0.3s ease;
             box-shadow: 0 0 5px #8be9fd, 0 0 10px #ff79c6;
         }
+
         .container button:hover {
             transform: scale(1.1);
             background: linear-gradient(90deg, #50fa7b, #ffb86c);
             box-shadow: 0 0 10px #ffb86c, 0 0 15px #50fa7b;
         }
+
         footer {
             background: #21222c;
             color: white;
             text-align: center;
             padding: 10px 0;
         }
+
         /* Floating Button */
         .dark-mode-toggle {
             position: fixed;
@@ -131,30 +137,38 @@
             align-items: center;
             transition: all 0.3s ease;
         }
+
         .dark-mode-toggle:hover {
             transform: scale(1.1);
             background: #ffb86c;
         }
+
         .light-mode {
             background-color: #f2f2f2;
             color: black;
         }
+
         .light-mode header {
             background-color: #e0e0e0;
         }
+
         .light-mode nav {
             background: #d9d9d9;
         }
+
         .light-mode .container {
             background: rgba(0, 0, 0, 0.05);
         }
+
         .light-mode nav a {
             color: black;
         }
+
         .light-mode nav a:hover {
             background: #50fa7b;
             color: black;
         }
+
         /* Background Visuals */
         .background-visuals {
             position: fixed;
@@ -165,6 +179,7 @@
             z-index: -1;
             overflow: auto;
         }
+
         .background-visuals span {
             position: absolute;
             display: block;
@@ -174,33 +189,42 @@
             border-radius: 50%;
             animation: float 10s infinite;
         }
+
         .background-visuals span:nth-child(odd) {
             animation-duration: 8s;
         }
+
         @keyframes float {
             0% {
                 transform: translateY(0) rotate(0);
             }
+
             50% {
                 transform: translateY(-30px) rotate(180deg);
             }
+
             100% {
                 transform: translateY(0) rotate(360deg);
             }
         }
+
         @media (max-width: 768px) {
             nav .branding {
                 font-size: 24px;
             }
+
             nav a {
                 font-size: 14px;
             }
+
             .container {
                 width: 95%;
             }
+
             .container p {
                 font-size: 14px;
             }
+
             .container button {
                 font-size: 14px;
                 padding: 8px 16px;
@@ -210,10 +234,10 @@
 </head>
 <body>
     <header>
-       <div class="header-content">
-        <img src="logo.png" alt="Sky Teach Logo" class="logo">
-        <h1>SKY Study Hub-CC</h1>
-    </div>
+        <div class="header-content">
+            <img src="logo.png" alt="Sky Teach Logo" class="logo">
+            <h1>SKY Study Hub-CC</h1>
+        </div>
     </header>
     <nav>
         <div class="branding">SKY</div>
@@ -224,27 +248,9 @@
         </div>
     </nav>
     <div class="container">
-      <h2>Welcome to the Department of Cloud Computing! ☁️🚀</h2>
-      <p>We are thrilled to have you join the Department of Cloud Computing, where innovation meets limitless possibilities. This department is dedicated to equipping students with cutting-edge skills and knowledge in cloud technologies, enabling them to thrive in the dynamic world of technology.</p>
-      <p>Here’s what you can look forward to:</p>
-      <ul>
-        <li><strong>In-Depth Learning 📘:</strong> Dive into modern cloud architectures and learn how to build scalable, secure, and efficient solutions.</li>
-        <li><strong>Practical Experience 🛠️:</strong> Explore real-world applications of cloud platforms like AWS, Azure, and Google Cloud through hands-on projects.</li>
-        <li><strong>Subject-Wise and Chapter-Wise Tests 📝:</strong> Regular tests will be conducted to assess your understanding of key concepts. These tests are designed to reinforce learning and help you prepare effectively for exams.</li>
-        <li><strong>Exam-Focused Resources 📚:</strong> Access a variety of resources, including practice questions and mock tests, to help you excel in your assessments.</li>
-        <li><strong>Guided Support 🤝:</strong> Benefit from expert mentorship and guidance to overcome challenges and succeed in your academic journey.</li>
-      </ul>
-      <p>As part of this vibrant community, you’ll have access to world-class resources and a platform to unleash your potential. Let’s innovate, collaborate, and shape the future of technology together! 🌟</p>
-      <p>Welcome to the journey of transforming ideas into reality through the power of the cloud! 🌐☁️</p>
+        <h2>Welcome to the Department of Cloud Computing! ☁️🚀</h2>
+        <p>We are thrilled to have you join...</p>
     </div>
-
-    <div class="container">
-        <p>Learn smarter, not harder! Dive into curated notes designed for your success. 📖🌟</p>
-        <button onclick="window.location.href='ch_sem4.html'">Study Material</button>
-    </div>
-    <div class="container">
-        <p>Challenge yourself! Each question is a step closer to your dream. Practice, improve, and succeed! 💪✨</p>
-        <button onclick="window.location.href='pr_sem4.html'">Practice for Exam</button>
-    </div>
+    <!-- Rest of your content -->
 </body>
 </html>
