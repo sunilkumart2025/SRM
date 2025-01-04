@@ -35,7 +35,7 @@
             padding: 0;
             background-color: #1e1e2f;
             color: white;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow: hidden; /* To prevent scrollbars due to floating visuals */
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
@@ -249,8 +249,43 @@
     </nav>
     <div class="container">
         <h2>Welcome to the Department of Cloud Computing! ☁️🚀</h2>
-        <p>We are thrilled to have you join...</p>
+        <p>We are thrilled to have you join the Department of Cloud Computing, where innovation meets limitless possibilities. This department is dedicated to equipping students with cutting-edge skills and knowledge in cloud technologies, enabling them to thrive in the dynamic world of technology.</p>
+        <p>Here’s what you can look forward to:</p>
+        <ul>
+            <li><strong>In-Depth Learning 📘:</strong> Dive into modern cloud architectures and learn how to build scalable, secure, and efficient solutions.</li>
+            <li><strong>Practical Experience 🛠️:</strong> Explore real-world applications of cloud platforms like AWS, Azure, and Google Cloud through hands-on projects.</li>
+            <li><strong>Subject-Wise and Chapter-Wise Tests 📝:</strong> Regular tests will be conducted to assess your understanding of key concepts. These tests are designed to reinforce learning and help you prepare effectively for exams.</li>
+            <li><strong>Exam-Focused Resources 📚:</strong> Access a variety of resources, including practice questions and mock tests, to help you excel in your assessments.</li>
+            <li><strong>Guided Support 🤝:</strong> Benefit from expert mentorship and guidance to overcome challenges and succeed in your academic journey.</li>
+        </ul>
+        <p>As part of this vibrant community, you’ll have access to world-class resources and a platform to unleash your potential. Let’s innovate, collaborate, and shape the future of technology together! 🌟</p>
+        <p>Welcome to the journey of transforming ideas into reality through the power of the cloud! 🌐☁️</p>
     </div>
-    <!-- Rest of your content -->
+
+    <div class="container">
+        <p>Learn smarter, not harder! Dive into curated notes designed for your success. 📖🌟</p>
+        <button onclick="window.location.href='ch_sem4.html'">Study Material</button>
+    </div>
+    <div class="container">
+        <p>Master concepts through focused testing. Practice makes perfect! 📝🔥</p>
+        <button onclick="window.location.href='test_sem4.html'">Subject Tests</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SKY Teach. All rights reserved.</p>
+    </footer>
+    <div class="background-visuals">
+        <span style="top: 10%; left: 15%; animation-delay: 0s;"></span>
+        <span style="top: 40%; left: 70%; animation-delay: 2s;"></span>
+        <span style="top: 70%; left: 40%; animation-delay: 4s;"></span>
+        <span style="top: 20%; left: 60%; animation-delay: 6s;"></span>
+        <span style="top: 50%; left: 20%; animation-delay: 8s;"></span>
+    </div>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌓</button>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('light-mode');
+        }
+    </script>
 </body>
 </html>
