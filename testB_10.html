@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Test</title>
+    <style>
+        /* Dark theme with background visuals */
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://www.transparenttextures.com/patterns/dark-denim.png'), linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background-size: cover;
+            color: #e0e0e0;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px;
+            background: rgba(30, 30, 30, 0.95);
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+        }
+
+        h1 {
+            color: #ff9800;
+            font-size: 2rem;
+        }
+
+        #question {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        #options button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 12px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+            background: #2b2b2b;
+            color: #e0e0e0;
+        }
+
+        #options button.correct {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        #options button.wrong {
+            background-color: #f44336;
+            color: white;
+        }
+
+        #options button:hover {
+            transform: scale(1.03);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(20, 20, 20, 0.95);
+            border-radius: 8px;
+            font-size: 1.2rem;
+            color: #e0e0e0;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+            background: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #333;
+        }
+
+        th {
+            background: #333;
+        }
+
+        .correct {
+            background: #388e3c;
+            color: white;
+        }
+
+        .wrong {
+            background: #d32f2f;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tech Test</h1>
+        <div>
+            <p id="question">Loading...</p>
+            <div id="options"></div>
+        </div>
+        <div id="result" class="result" style="display: none;"></div>
+    </div>
+    <script src="testB_10.js"></script>
+</body>
+</html>
