@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRM Study Hub-CC</title>
+    <style>
+        /* Ensure this only affects the header */
+        header {
+            width: 100%; /* Full-width header */
+            text-align: center; /* Center content horizontally */
+            background-color: #f0f0f0; /* Optional: Add a background color */
+            padding: 20px 0; /* Space above and below the header */
+        }
+
+        .header-content {
+            display: inline-flex; /* Keep items inline */
+            align-items: center; /* Vertically align items */
+            gap: 10px; /* Space between logo and title */
+        }
+
+        .logo {
+            height: 50px; /* Adjust logo size */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px; /* Adjust text size */
+            font-family: Arial, sans-serif; /* Optional: Change font */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e2f;
+            color: white;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header {
+            background-color: #282a36;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #21222c;
+            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .branding {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff79c6;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #50fa7b;
+            color: black;
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+            padding: 20px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            width: 90%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .container p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .container button {
+            background: linear-gradient(90deg, #ff79c6, #8be9fd);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px #8be9fd, 0 0 10px #ff79c6;
+        }
+
+        .container button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(90deg, #50fa7b, #ffb86c);
+            box-shadow: 0 0 10px #ffb86c, 0 0 15px #50fa7b;
+        }
+
+        footer {
+            background: #21222c;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Background Visuals */
+        .background-visuals {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: auto;
+        }
+
+        .background-visuals span {
+            position: absolute;
+            display: block;
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float 10s infinite;
+        }
+
+        .background-visuals span:nth-child(odd) {
+            animation-duration: 8s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0);
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav .branding {
+                font-size: 24px;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+            .container p {
+                font-size: 14px;
+            }
+
+            .container button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="logo.png" alt="Sky Teach Logo" class="logo">
+            <h1>SKY Study Hub-CC</h1>
+        </div>
+    </header>
+    <nav>
+        <div class="branding">SKY</div>
+        <div>
+            <a href="https://sky-phi.vercel.app/">Home</a>
+            <a href="developer2.html">Developer</a>
+            <a href="contribute2.html">Contribute</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Welcome to B.Tech in Computer Science and Engineering (Specialization in Artificial Intelligence and Machine Learning)! 🤖✨</h2>
+        <p>Immerse yourself in the transformative field of Artificial Intelligence and Machine Learning, where innovation drives intelligent systems and automation. This program is designed to equip you with the knowledge and tools to thrive in AI-driven industries.</p>
+        <p>Here’s what awaits you:</p>
+        <ul>
+            <li><strong>Comprehensive Learning 📘:</strong> Master programming, algorithms, and AI concepts like neural networks and deep learning.</li>
+            <li><strong>Practical Experience 🛠️:</strong> Work on real-world AI projects, develop machine learning models, and refine your analytical skills.</li>
+            <li><strong>Specialized Knowledge 🌟:</strong> Explore cutting-edge topics like computer vision, natural language processing, and AI ethics.</li>
+            <li><strong>Exam-Focused Resources 📚:</strong> Access a variety of resources, including practice questions and mock tests, to help you excel in your assessments.</li>
+            <li><strong>Career Opportunities 🚀:</strong> Prepare for exciting roles in software development, engineering, and innovation.</li>
+        </ul>
+        <p>Embark on this exciting journey to become an innovator in AI and shape the intelligent technologies of the future! 🌐</p>
+    </div>
+
+    <div class="container">
+        <p>Learn smarter, not harder! Dive into curated notes designed for your success. 📖🌟</p>
+        <button onclick="window.location.href='ch_sem2.html'">Study Material</button>
+    </div>
+    <div class="container">
+        <p>Master concepts through focused testing. Practice makes perfect! 📝🔥</p>
+        <button onclick="window.location.href='pr_sem2.html'">Subject Tests</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SKY Teach. All rights reserved.</p>
+    </footer>
+    <div class="background-visuals">
+        <span style="top: 10%; left: 15%; animation-delay: 0s;"></span>
+        <span style="top: 40%; left: 70%; animation-delay: 2s;"></span>
+        <span style="top: 70%; left: 40%; animation-delay: 4s;"></span>
+        <span style="top: 20%; left: 60%; animation-delay: 6s;"></span>
+        <span style="top: 50%; left: 20%; animation-delay: 8s;"></span>
+    </div>
+</body>
+</html>
