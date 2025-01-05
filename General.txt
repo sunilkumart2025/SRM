@@ -1,0 +1,11 @@
+Link to create a test ;
+Examle 1----https://username.github.io/repository/test1_1.html?subject=Maths&test=Test1
+Examle 2----https://username.github.io/repository/test1_1.html?subject=Physics&test=Test1
+
+
+
+
+
+
+
+
