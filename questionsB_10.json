@@ -1,0 +1,197 @@
+{
+    "21BTB102T": {
+        "Unit1_10": [
+    {
+        "question": "Who coined the term 'cell' and first observed it?",
+        "options": ["Robert Hooke", "Leeuwenhoek", "Schleiden and Schwann", "Altmann and Kolliker"],
+        "answer": "Robert Hooke"
+    },
+    {
+        "question": "What is the title of the book where Robert Hooke published his observations of cork cells?",
+        "options": ["Genera plantarum", "Species plantarum", "Origin of species", "Micrographia"],
+        "answer": "Micrographia"
+    },
+    {
+        "question": "According to the cell theory, what are cells considered as?",
+        "options": ["Fundamental structural units of organisms", "Cells reproduce", "Cells are living", "Cells have nuclei"],
+        "answer": "Fundamental structural units of organisms"
+    },
+    {
+        "question": "What is the largest organelle within a eukaryotic cell?",
+        "options": ["Nucleus", "Mitochondria", "Lysosome", "Ribosome"],
+        "answer": "Nucleus"
+    },
+    {
+        "question": "What is the liquid content of a vacuole called?",
+        "options": ["Cell sap", "Matrix", "Nucleoid", "Core"],
+        "answer": "Cell sap"
+    },
+    {
+        "question": "During which phase of the cell cycle does DNA replication occur?",
+        "options": ["Prophase", "Interphase", "Metaphase", "Telophase"],
+        "answer": "Interphase"
+    },
+    {
+        "question": "What is the longest phase of the cell cycle?",
+        "options": ["Prophase", "Interphase", "Metaphase", "Telophase"],
+        "answer": "Interphase"
+    },
+    {
+        "question": "Which chromosomes are called homologous chromosomes?",
+        "options": [
+            "Sister chromatids",
+            "Chromomeres",
+            "Chromosomes similar in size, shape, genes, and gene sequences",
+            "Parental chromosomes"
+        ],
+        "answer": "Chromosomes similar in size, shape, genes, and gene sequences"
+    },
+    {
+        "question": "What is the function of meiosis I?",
+        "options": [
+            "To separate homologous chromosomes",
+            "To separate sister chromatids",
+            "To separate crossovers",
+            "To separate parental chromosomes"
+        ],
+        "answer": "To separate homologous chromosomes"
+    },
+    {
+        "question": "Who discovered the nucleus, and in which type of cells?",
+        "options": [
+            "Robert Brown in orchid root cells",
+            "Robert Brown in bean root cells",
+            "Robert Brown in maize stem cells",
+            "Robert Brown in wheat stem cells"
+        ],
+        "answer": "Robert Brown in orchid root cells"
+    }
+]
+
+
+         "Unit2_10": [
+    {
+        "question": "Which of the following is the simplest form of carbohydrates?",
+        "options": ["Carboxyl groups", "Aldehyde and Ketone groups", "Alcohol and Carboxyl groups", "Hydroxyl groups and Hydrogen groups"],
+        "answer": "Aldehyde and Ketone groups"
+    },
+    {
+        "question": "What is the most abundant biomolecule on Earth?",
+        "options": ["Lipids", "Proteins", "Carbohydrates", "Nucleic acids"],
+        "answer": "Carbohydrates"
+    },
+    {
+        "question": "Which class of carbohydrates cannot be hydrolyzed further?",
+        "options": ["Monosaccharides", "Polysaccharides", "Disaccharides", "Proteoglycan"],
+        "answer": "Monosaccharides"
+    },
+    {
+        "question": "What is the general formula for carbohydrates?",
+        "options": ["(C4H2O)n", "(C6H2O)n", "(CH2O)n", "(C2H2O)n COOH"],
+        "answer": "(CH2O)n"
+    },
+    {
+        "question": "What is an example of derived lipids?",
+        "options": ["Terpenes", "Steroids", "Carotenoids", "All of the above"],
+        "answer": "All of the above"
+    },
+    {
+        "question": "Which molecule is rich in saturated fatty acids?",
+        "options": ["Fats", "Oils", "Both fats and oils", "Neither fats nor oils"],
+        "answer": "Fats"
+    },
+    {
+        "question": "Phospholipids are an essential component of:",
+        "options": ["Nucleus", "Ribosomes", "Biological membranes", "DNA"],
+        "answer": "Biological membranes"
+    },
+    {
+        "question": "How many amino acids make up a protein?",
+        "options": ["10", "20", "30", "50"],
+        "answer": "20"
+    },
+    {
+        "question": "What is the bond between amino acids in proteins called?",
+        "options": ["Ionic bond", "Acidic bond", "Peptide bond", "Hydrogen bond"],
+        "answer": "Peptide bond"
+    },
+    {
+        "question": "What is the role of ribosomes in the cell?",
+        "options": ["Protein synthesis", "Lipid synthesis", "DNA replication", "Energy production"],
+        "answer": "Protein synthesis"
+    }
+]
+
+         "Unit3_10": [
+            {
+                "question": "What is 2 + 2?",
+                "options": ["3", "4", "5", "6"],
+                "answer": "4"
+          "options": ["2", "3", "4", "6"],
+                "answer": "3"
+            },
+            {
+                "question": "What is 6 x 6?",
+                "options": ["30", "36", "42", "48"],
+                "answer": "36"
+            }
+        ]
+
+         "Test3": [
+            {
+                "question": "Which of the following is a thermosetting polymer?",
+                "options": [" Polystyrene", "Polyolefins", "Nylons", "Phenolic resins"],
+                "answer": "Phenolic resins"
+            },
+            {
+                "question": "Which of the following monomers are unsuitable for condensation polymerization?",
+                "options": ["Propanoic acid and ethanol", "Butane-dioic acid and glycol", "Diamines and dicarboxylic acids", "Hydroxy acids"],
+                "answer": "Propanoic acid and ethanol"
+            },
+            {
+                "question": "Which of the following kind of polymers are known for their high crystallinity?",
+                "options": ["Isotactic", "Syndiotactic", "Atactic", "None of the mentioned"],
+                "answer": "Isotactic"
+            },
+            {
+                "question": "What is 12 / 4?",
+                "options": ["2", "3", "4", "6"],
+                "answer": "3"
+            },
+            {
+                "question": "What is 6 x 6?",
+                "options": ["30", "36", "42", "48"],
+                "answer": "36"
+            }
+        ]
+    },
+    "Physics": {
+        "Test1": [
+            {
+                "question": "What is the speed of light?",
+                "options": ["3x10^8 m/s", "3x10^6 m/s", "3x10^9 m/s", "3x10^7 m/s"],
+                "answer": "3x10^8 m/s"
+            },
+            {
+                "question": "What is the SI unit of force?",
+                "options": ["Newton", "Pascal", "Joule", "Watt"],
+                "answer": "Newton"
+            },
+            {
+                "question": "What is the acceleration due to gravity on Earth?",
+                "options": ["9.8 m/s^2", "10 m/s^2", "9.5 m/s^2", "8 m/s^2"],
+                "answer": "9.8 m/s^2"
+            },
+            {
+                "question": "Who proposed the theory of relativity?",
+                "options": ["Isaac Newton", "Albert Einstein", "Galileo Galilei", "Nikola Tesla"],
+                "answer": "Albert Einstein"
+            },
+            {
+                "question": "What is the formula for kinetic energy?",
+                "options": ["1/2 mv^2", "mv", "mgh", "1/2 mv"],
+                "answer": "1/2 mv^2"
+            }
+        ]
+    }
+}
