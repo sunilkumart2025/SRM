@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <title>Semester 2</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e2f;
+            color: white;
+        }
+        header {
+            background-color: #282a36;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 5px;
+            vertical-align: middle;
+            gap: 20px;
+            align-items: center;
+        
+        
+        
+        
+        
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #525464;
+            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        nav .branding {
+            font-size: 28px;
+            font-weight: bold;
+            color: #50fa7b;
+            text-shadow: 0 0 10px #50fa7b, 0 0 20px #50fa7b;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 3px;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background: #ffb86c;
+            color: black;
+            transform: scale(1.1);
+        }
+        .logo{
+      
+            width: 50px;
+            height: 50px;
+        }
+        .container {
+            padding: 20px 20px;
+            padding-top: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            width: 75%;
+            margin: 25px auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        .section {
+            margin-bottom: 8px;
+            padding: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: 2px solid #44475a;
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #8be9fd;
+        }
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .section ul li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 5px;
+            background: linear-gradient(90deg, #6272a4, #44475a);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .section ul li:hover {
+            background: linear-gradient(90deg, #dd9e5a, #e3e6c3);
+            transform: translateY(-5px);
+            padding: 10px;
+        }
+        .section ul li a {
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            padding: 5px 15px;
+            background: #66ad78;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .section ul li a:hover {
+            background: #f04a4a;
+            color: black;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .navigation-buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .navigation-buttons a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(90deg, #6272a4, #44475a);
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: buttonGlow 2s infinite alternate;
+        }
+        .navigation-buttons a:hover {
+            background: linear-gradient(90deg, #ffb86c, #f1fa8c);
+            transform: scale(1.1);
+        }
+        @keyframes buttonGlow {
+            0% {
+                box-shadow: 0 0 10px #50fa7b;
+            }
+            100% {
+                box-shadow: 0 0 20px #50fa7b;
+            }
+        }
+        /* Footer Styles */
+        footer {
+            background: #111;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .footer-logo, .footer-links, .footer-social {
+            flex: 1;
+            margin: 20px;
+        }
+
+        .footer-logo h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .footer-links h3, .footer-social h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+
+        .footer-social a {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .footer-social img {
+            width: 32px;
+            height: 32px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .footer-social a:hover img {
+            transform: scale(1.2);
+        }
+
+        .footer-bottom {
+            margin-top: 50px;
+            border-top: 1px solid #444;
+            padding-top: 10px;
+            margin-bottom: 50px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+       <img class="logo" src="logo.png" alt="Logo">
+        <h1>SRM Study Hub - 21MAB102T</h1>
+    </header>
+    <nav>
+        <div class="branding">SKY</div>
+        <div>
+            <a href="https://sky-phi.vercel.app/">Home</a>
+            <a href="developer.html">Developer</a>
+            <a href="contribute.html">Contribute</a>
+        </div>
+    </nav>
+
+
+
+
+   <div class="container">
+        <h2>Syllabus</h2>
+        <div class="section">
+          <h3>2021 Regulation</h3>
+            <ul>
+                <li>
+                    21MAB102T-Syllabus Final <a href="https://drive.google.com/file/d/1qBtw7gXrJz89BnbnMFl2FJ2rxLx7shPq/view?usp=drive_link">Open</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    
+    <div class="container">
+        <h2>Previous Year Questions</h2>
+        <div class="section">
+          <h3>Semester Question Paper</h3>
+            <ul>
+                <li>
+                    Jan 2023 <a href="https://sunilkumart2025.github.io/SRM/main/testB_10.html?subject=21BTB102T&test=Unit1_10">Open</a>
+                </li>
+                <li>
+                    May 2023 <a href="YOUR_DRIVE_LINK_2021">Open</a>
+                </li>
+                <li>
+                    July 2023 <a href="YOUR_DRIVE_LINK_2022">Open</a>
+                </li>
+                <li>
+                    Dec 2023 <a href="YOUR_DRIVE_LINK_2022">Open</a>
+                </li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3>CLA Question Paper</h3>
+            <ul>
+                <li>
+                    CT-1 Set-D11 Oct 2022 with Answer Key<a href="#">Open</a>
+                </li>
+                <li>
+                    CT-1 Set-D12 Oct 2022 with Answer Key<a href="YOUR_DRIVE_LINK_MODULE2">Open</a>
+                </li>
+                <li>
+                    Module 3 <a href="YOUR_DRIVE_LINK_MODULE3">Open</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Notes</h2>
+        <div class="section">
+          <h3>SRM IST, Ramapuram</h3>
+            <ul>
+                <li>
+                    Unit 1 - Multiple Integrals <a href="https://drive.google.com/file/d/1flEXUbMtiWfAd29yJEIKWlP0xsPiRAgo/view?usp=drive_link">Open</a>
+                </li>
+                <li>
+                    Unit 2 - Vector Calculus <a href="https://drive.google.com/file/d/1lpM4kh51Nb-GdcAPuK42FtO970noeY1S/view?usp=drive_link">Open</a>
+                </li>
+                <li>
+                    Unit 3 - Laplace Transforms <a href="https://drive.google.com/file/d/124LrZ3ZovcScrbibB7JW7SHvJvSUZsi5/view?usp=drive_link">Open</a>
+                </li>
+                <li>
+                    Unit 4 - Analytic Functions <a href="https://drive.google.com/file/d/1VxpZwWpoNr-ziXhNhgqRyIJygGZTWmS_/view?usp=drive_link">Open</a>
+                </li>
+                <li>
+                    Unit 5 - Complex Integration <a href="https://drive.google.com/file/d/1wZumi3G0W0eIfBabG9uSdDxAcZSldFyG/view?usp=drive_link">Open</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+  
+
+
+
+    
+    
+    <div class="container">
+        <h2>Queation Bank</h2>
+        <div class="section">
+          <h3>Unit 1</h3>
+            <ul>
+                <li>
+                     Part-A <a href="https://drive.google.com/file/d/1qoLHEVhYOzgyi2xbJz02YA-51oEJIHJ-/view?usp=drive_link">Open</a>
+                </li>
+                <li>
+                    Part-B <a href="https://drive.google.com/file/d/1qiOFyaLvTy4jPLSzV58N2eX_8MJfUU3A/view?usp=drive_link">Open</a>
+                </li>
+            </ul>
+        </div>
+        <div class="section">
+          <h3>Unit 2</h3>
+            <ul>
+                <li>
+                     Part-A <a href="https://drive.google.com/file/d/1qtn3NMG_a503qfsyCygw0ETAX72V51Ld/view?usp=drive_link">Open</a>
+                </li>
+                <li>
+                    Part-B <a href="https://drive.google.com/file/d/1qofxBoangUKicIRWIXCIh-J7wxzFDLCl/view?usp=drive_link">Open</a>
+                </li>
+            </ul>
+        </div>
+        <div class="section">
+          <h3>Unit 3</h3>
+            <ul>
+                <li>
+                     Part-A <a href="https://drive.google.com/file/d/1r-mKytTlmj6_eBT12JmBBWZDxraQ0K9J/view?usp=drive_link">Open</a>
+                </li>
+                <li>
+                    Part-B <a href="https://drive.google.com/file/d/1r83H8iQthVbdj_0eWFOetkRjcd7gP5E2/view?usp=drive_link">Open</a>
+                </li>
+            </ul>
+        </div>
+        <div class="section">
+          <h3>Unit 4</h3>
+            <ul>
+                <li>
+                     Part-A <a href="https://drive.google.com/file/d/1rGp11l-UsfGVmJur9zsqoJ9ikoKJyyOh/view?usp=drive_link">Open</a>
+                </li>
+                <li>
+                    Part-B <a href="https://drive.google.com/file/d/1rG3gTI6zGb6LvFNgM07MJqecjyHgZmzi/view?usp=drive_link">Open</a>
+                </li>
+            </ul>
+        </div>
+        <div class="section">
+          <h3>Unit 5</h3>
+            <ul>
+                <li>
+                     Part-A <a href="https://drive.google.com/file/d/1rJRr6NCEe1BkNOs0l5Y0pHUcO2tZhg71/view?usp=drive_link">Open</a>
+                </li>
+                <li>
+                    Part-B <a href="https://drive.google.com/file/d/1rOtiF4NtYLFGFpoBk9EOR5i9BlSIW1hJ/view?usp=drive_link">Open</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>SKY Teach</h2>
+                <p>Empowering students with quality study resources.</p>
+            </div>
+    
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="/about">About Us</a>
+                <a href="/resources">Resources</a>
+                <a href="/faq">FAQ</a>
+                <a href="/contact">Contact</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+            </div>
+    
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="https://linkedin.com" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn">
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Twitter_Logo_as_of_2021.svg" alt="Twitter">
+                </a>
+                <a href="https://github.com" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+                </a>
+                <a href="https://telegram.org" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+                </a>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2025 SKY Teach | All Rights Reserved</p>
+        </div>
+    </footer>
+    
+    
+</body>
+</html>
