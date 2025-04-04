@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Score History</title>
+</head>
+<body>
+  <h2>Your Score History</h2>
+  <table>
+    <tr>
+      <th>Subject</th>
+      <th>Chapter</th>
+      <th>Level</th>
+      <th>Score</th>
+      <th>Total</th>
+    </tr>
+    <tbody id="score-table"></tbody>
+  </table>
+
+  <script>
+    const API_URL = "https://mcq-backend.vercel.app";
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      alert("Please login first");
+      window.location.href = "login.html";
+    } else {
+      fetch(API_URL + "/api/score-history?userId=1") // Change `1` to actual user ID
+        .then(res => res.json())
+        .then(data => {
+          let html = "";
+          data.forEach(score => {
+            html += `<tr>
+                      <td>${score.subject}</td>
+                      <td>${score.chapter}</td>
+                      <td>${score.level}</td>
+                      <td>${score.score}</td>
+                      <td>${score.total}</td>
+                    </tr>`;
+          });
+          document.getElementById("score-table").innerHTML = html;
+        });
+    }
+  </script>
+</body>
+</html>
