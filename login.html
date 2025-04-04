@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login / Signup</title>
+</head>
+<body>
+  <h2>Login</h2>
+  <input type="email" id="login-email" placeholder="Enter Email">
+  <input type="password" id="login-password" placeholder="Enter Password">
+  <button onclick="login()">Login</button>
+  <p>Don't have an account? <a href="#" onclick="showSignup()">Sign Up</a></p>
+  <p><a href="#" onclick="showForgot()">Forgot Password?</a></p>
+
+  <div id="signup-section" style="display:none;">
+    <h2>Signup</h2>
+    <input type="email" id="signup-email" placeholder="Enter Email">
+    <input type="password" id="signup-password" placeholder="Enter Password">
+    <button onclick="signup()">Signup</button>
+    <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+  </div>
+
+  <script>
+    const API_URL = "https://mcq-backend.vercel.app";
+
+    function login() {
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+
+      fetch(API_URL + "/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("email", email);
+          window.location.href = "index.html";
+        } else {
+          alert(data.message);
+        }
+      });
+    }
+
+    function signup() {
+      const email = document.getElementById("signup-email").value;
+      const password = document.getElementById("signup-password").value;
+
+      fetch(API_URL + "/api/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          alert("Signup successful! Please login.");
+          showLogin();
+        } else {
+          alert("Error: " + data.message);
+        }
+      });
+    }
+
+    function showSignup() {
+      document.getElementById("signup-section").style.display = "block";
+    }
+
+    function showLogin() {
+      document.getElementById("signup-section").style.display = "none";
+    }
+  </script>
+</body>
+</html>
