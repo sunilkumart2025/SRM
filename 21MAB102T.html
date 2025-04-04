@@ -6,6 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
     <title>Semester 2</title>
+    
+    
+    <script>
+  const API_URL = "https://mcq-backend.vercel.app";
+
+  function checkAuth() {
+    const token = localStorage.getItem("token");
+    if (token) {
+      document.getElementById("login-btn").style.display = "none";
+      document.getElementById("logout-btn").style.display = "inline";
+      document.getElementById("user-email").innerText = localStorage.getItem("email");
+    }
+  }
+
+  function logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("email");
+    location.reload();
+  }
+
+  checkAuth();
+</script>
+    
+    
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -225,6 +249,13 @@
     <header>
        <img class="logo" src="logo.jpg" alt="Logo">
         <h1>SRM Study Hub - 21MAB102T</h1>
+    
+       <div id="auth-section">
+          <span id="user-email"></span>
+          <button id="login-btn" onclick="showLogin()">Login</button>
+          <button id="logout-btn" onclick="logout()" style="display:none;">Logout</button>
+        </div>
+       
     </header>
     <nav>
         <div class="branding">SKY</div>
