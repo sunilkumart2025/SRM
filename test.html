@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MCQ Test</title>
+</head>
+<body>
+  <h2>Start Your Test</h2>
+
+  <select id="subject">
+    <option value="math">Math</option>
+    <option value="physics">Physics</option>
+    <option value="chemistry">Chemistry</option>
+  </select>
+
+  <select id="chapter">
+    <option value="1">Chapter 1</option>
+    <option value="2">Chapter 2</option>
+    <option value="3">Chapter 3</option>
+  </select>
+
+  <select id="level">
+    <option value="1">Easy</option>
+    <option value="2">Medium</option>
+    <option value="3">Hard</option>
+  </select>
+
+  <button onclick="startTest()">Start Test</button>
+
+  <div id="test-area"></div>
+
+  <script>
+    function startTest() {
+      const subject = document.getElementById("subject").value;
+      const chapter = document.getElementById("chapter").value;
+      const level = document.getElementById("level").value;
+
+      window.location.href = `mcq.html?subject=${subject}&chapter=${chapter}&level=${level}`;
+    }
+  </script>
+</body>
+</html>
