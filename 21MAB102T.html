@@ -8,26 +8,7 @@
     <title>Semester 2</title>
     
     
-    <script>
-  const API_URL = "https://mcq-backend-iota.vercel.app/";
-
-  function checkAuth() {
-    const token = localStorage.getItem("token");
-    if (token) {
-      document.getElementById("login-btn").style.display = "none";
-      document.getElementById("logout-btn").style.display = "inline";
-      document.getElementById("user-email").innerText = localStorage.getItem("email");
-    }
-  }
-        
-  function logout() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("email");
-    location.reload();
-  }
-
-  checkAuth();
-</script>
+    
             <script>
   const API_URL = "https://mcq-backend-iota.vercel.app/";
 
