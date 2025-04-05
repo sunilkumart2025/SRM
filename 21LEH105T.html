@@ -1,0 +1,102 @@
+<html>
+  <!-- LOGIN FORM -->
+<div id="login-box">
+  <input type="email" id="login-email" placeholder="Email"><br>
+  <input type="password" id="login-password" placeholder="Password"><br>
+  <button onclick="loginUser()">Login</button>
+  <button onclick="forgotPassword()">Forgot Password?</button>
+</div>
+
+<!-- SIGNUP FORM -->
+<div id="signup-box">
+  <input type="email" id="signup-email" placeholder="Email"><br>
+  <input type="password" id="signup-password" placeholder="Password"><br>
+  <button onclick="signupUser()">Signup</button>
+</div>
+<div id="user-profile" style="display:none;">
+  <img src="profile-icon.png" width="30" onclick="goToProfile()" title="Profile" />
+</div>
+
+</html>
+
+<script>
+const API_URL = "https://mcq-backend-iota.vercel.app/"; // ✅ Change this to your backend URL
+
+function loginUser() {
+  const email = document.getElementById("login-email").value;
+  const password = document.getElementById("login-password").value;
+
+  fetch(`${API_URL}/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password }),
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.token) {
+      localStorage.setItem("userToken", data.token);
+      localStorage.setItem("userEmail", email);
+      alert("Login successful!");
+      showProfileIcon(); // ✅ Show profile after login
+    } else {
+      alert(data.error || "Login failed.");
+    }
+  });
+}
+
+function signupUser() {
+  const email = document.getElementById("signup-email").value;
+  const password = document.getElementById("signup-password").value;
+
+  fetch(`${API_URL}/signup`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password }),
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert(data.message || "Signup failed");
+  });
+}
+
+function forgotPassword() {
+  const email = prompt("Enter your email to reset password:");
+  if (!email) return;
+
+  fetch(`${API_URL}/forgot-password`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert(data.message || "Check your email.");
+  });
+}
+</script>
+<script>
+function showProfileIcon() {
+  const token = localStorage.getItem("userToken");
+  if (token) {
+    document.getElementById("user-profile").style.display = "inline-block";
+  }
+}
+function goToProfile() {
+  window.location.href = "profile.html";
+}
+function logoutUser() {
+  localStorage.removeItem("userToken");
+  localStorage.removeItem("userEmail");
+  alert("Logged out!");
+  window.location.href = "index.html";
+}
+document.addEventListener("DOMContentLoaded", showProfileIcon);
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const token = localStorage.getItem("userToken");
+  if (token) {
+    showProfileIcon();
+  }
+});
+</script>
