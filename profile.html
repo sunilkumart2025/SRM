@@ -2,17 +2,23 @@
 <html>
 <head><title>My Profile</title></head>
 <body>
-  <h1>User Profile</h1>
-  <p>Email: <span id="profile-email"></span></p>
+  <h1>My Profile</h1>
+  <p>Email: <span id="user-email"></span></p>
   <button onclick="logoutUser()">Logout</button>
 
   <script>
     const email = localStorage.getItem("userEmail");
     if (!email) {
-      alert("Login required");
-      window.location.href = "login.html";
+      alert("Please login first");
+      window.location.href = "index.html";
     } else {
-      document.getElementById("profile-email").innerText = email;
+      document.getElementById("user-email").textContent = email;
+    }
+
+    function logoutUser() {
+      localStorage.removeItem("userToken");
+      localStorage.removeItem("userEmail");
+      window.location.href = "index.html";
     }
   </script>
 </body>
