@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>My Profile</title></head>
+<body>
+  <h1>User Profile</h1>
+  <p>Email: <span id="profile-email"></span></p>
+  <button onclick="logoutUser()">Logout</button>
+
+  <script>
+    const email = localStorage.getItem("userEmail");
+    if (!email) {
+      alert("Login required");
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("profile-email").innerText = email;
+    }
+  </script>
+</body>
+</html>
