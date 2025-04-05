@@ -35,7 +35,7 @@ button {
 
 
 <script>
-const API_URL = "https://mcq-backend-iota.vercel.app/"; // e.g., https://auth-app.vercel.app
+const API_URL = "https://mcq-backend-iota.vercel.app"; // e.g., https://auth-app.vercel.app
 
 function validateEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -76,7 +76,8 @@ function signupUser() {
   if (!password || password.length < 6) return alert("Password must be 6+ chars");
   if (password !== confirm) return alert("Passwords do not match");
 
-  fetch(`${API_URL}/signup`, {
+  fetch(`${API_URL}/signup`, ...
+ {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
