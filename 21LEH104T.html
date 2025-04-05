@@ -1,0 +1,119 @@
+<html>
+  <div id="auth-box" style="font-family: Arial; max-width: 300px;">
+  <h3>Login</h3>
+  <input type="email" id="login-email" placeholder="Email" required><br><br>
+  <input type="password" id="login-password" placeholder="Password" required><br><br>
+  <button onclick="loginUser()">Login</button>
+  <button onclick="forgotPassword()">Forgot Password?</button>
+  
+  <hr>
+
+  <h3>Signup</h3>
+  <input type="email" id="signup-email" placeholder="Email" required><br><br>
+  <input type="password" id="signup-password" placeholder="Password" required><br><br>
+  <input type="password" id="signup-confirm" placeholder="Confirm Password" required><br><br>
+  <button onclick="signupUser()">Signup</button>
+</div>
+
+  <div id="user-profile" style="display:none;">
+    <img src="profile-icon.png" width="30" onclick="goToProfile()" title="Profile" />
+  </div>
+  
+</html>
+
+<style>
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+button {
+  padding: 8px 12px;
+  margin-right: 5px;
+}
+</style>
+
+
+<script>
+const API_URL = "https://YOUR_BACKEND_URL_HERE"; // e.g., https://auth-app.vercel.app
+
+function validateEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function loginUser() {
+  const email = document.getElementById("login-email").value.trim();
+  const password = document.getElementById("login-password").value;
+
+  if (!validateEmail(email)) return alert("Invalid email");
+  if (!password) return alert("Password required");
+
+  fetch(`${API_URL}/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password }),
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.token) {
+        localStorage.setItem("userToken", data.token);
+        localStorage.setItem("userEmail", email);
+        alert("Login successful");
+        location.reload();
+      } else {
+        alert(data.error || "Login failed");
+      }
+    })
+    .catch(() => alert("Something went wrong"));
+}
+
+function signupUser() {
+  const email = document.getElementById("signup-email").value.trim();
+  const password = document.getElementById("signup-password").value;
+  const confirm = document.getElementById("signup-confirm").value;
+
+  if (!validateEmail(email)) return alert("Invalid email");
+  if (!password || password.length < 6) return alert("Password must be 6+ chars");
+  if (password !== confirm) return alert("Passwords do not match");
+
+  fetch(`${API_URL}/signup`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password }),
+  })
+    .then(res => res.json())
+    .then(data => {
+      alert(data.message || "Signup success");
+    })
+    .catch(() => alert("Something went wrong"));
+}
+
+function forgotPassword() {
+  const email = prompt("Enter your email to reset password:");
+  if (!email || !validateEmail(email)) return alert("Invalid email");
+
+  fetch(`${API_URL}/forgot-password`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
+  })
+    .then(res => res.json())
+    .then(data => alert(data.message || "Check your email"))
+    .catch(() => alert("Something went wrong"));
+}
+</script>
+
+<script>
+function showProfileIcon() {
+  if (localStorage.getItem("userToken")) {
+    document.getElementById("user-profile").style.display = "inline-block";
+  }
+}
+
+function goToProfile() {
+  window.location.href = "profile.html";
+}
+
+document.addEventListener("DOMContentLoaded", showProfileIcon);
+</script>
+
