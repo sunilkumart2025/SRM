@@ -141,7 +141,11 @@
     <header>
         <h1>SRM Study Hub - 21PYB102J</h1>
 
-        
+        <div id="auth-section">
+          <span id="user-email"></span>
+          <button id="login-btn" onclick="showLogin()">Login</button>
+          <button id="logout-btn" onclick="logout()" style="display:none;">Logout</button>
+        </div>
         <div id="user-profile" style="display:none;">
           <img src="profile-icon.png" width="30" onclick="goToProfile()" title="Profile" />
         </div>
