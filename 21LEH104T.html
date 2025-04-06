@@ -2,68 +2,140 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Login/Signup Page</title>
+  <title>Login / Signup</title>
   <style>
-    /* Basic styling for form and profile */
-    #auth-container, #profile-container {
-      width: 300px;
-      margin: 0 auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    #profile-container {
-      display: none;
-    }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0;
-    }
-    button {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-    }
-    #error-message {
-      color: red;
-    }
+    body { font-family: Arial; padding: 20px; }
+    #auth-container, #profile-container { border: 1px solid #ccc; padding: 15px; width: 300px; margin: auto; }
+    #profile-container { display: none; }
+    input { width: 100%; margin: 8px 0; padding: 10px; }
+    button { width: 100%; padding: 10px; margin: 5px 0; }
+    #toggle-form { text-align: center; margin-top: 10px; }
+    .error { color: red; }
   </style>
 </head>
 <body>
-  <div id="auth-container">
-    <h2 id="form-title">Login</h2>
-    <div id="error-message"></div>
-    <input type="email" id="email" placeholder="Email" required>
-    <input type="password" id="password" placeholder="Password" required>
-    <input type="password" id="confirm-password" placeholder="Confirm Password" style="display: none;">
-    <button id="auth-button">Login</button>
-    <p id="toggle-form">Don't have an account? <a href="#">Sign up</a></p>
-    <p><a href="#" id="forgot-password">Forgot Password?</a></p>
+
+<div id="auth-container">
+  <h3 id="form-title">Login</h3>
+  <div class="error" id="error-message"></div>
+  <input type="email" id="email" placeholder="Email" required>
+  <input type="password" id="password" placeholder="Password" required>
+  <input type="password" id="confirm-password" placeholder="Confirm Password" style="display: none;">
+  <button id="submit-button">Login</button>
+  <button id="forgot-button">Forgot Password</button>
+  <div id="toggle-form">
+    <a href="#" id="switch-mode">Don't have an account? Sign up</a>
   </div>
+</div>
 
-  <div id="profile-container">
-    <h2>Welcome, <span id="user-email"></span></h2>
-    <button id="logout-button">Logout</button>
-  </div>
+<div id="profile-container">
+  <p>Welcome, <span id="user-email"></span></p>
+  <button id="logout-button">Logout</button>
+</div>
 
-  <script>
-    const API_URL = 'https://mcq-backend-iota.vercel.app/'; // Replace with your backend URL
+<script>
+  const API_URL = 'https://mcq-backend-iota.vercel.app'; // Replace with your backend URL
+  let isLogin = true;
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const authContainer = document.getElementById('auth-container');
-      const profileContainer = document.getElementById('profile-container');
-      const formTitle = document.getElementById('form-title');
-      const authButton = document.getElementById('auth-button');
-      const toggleForm = document.getElementById('toggle-form');
-      const forgotPassword = document.getElementById('forgot-password');
-      const confirmPasswordInput = document.getElementById('confirm-password');
-      const errorMessage = document.getElementById('error-message');
-      const userEmailSpan = document.getElementById('user-email');
-      const logoutButton = document.getElementById('logout-button');
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const confirmPassword = document.getElementById('confirm-password');
+  const submitButton = document.getElementById('submit-button');
+  const switchMode = document.getElementById('switch-mode');
+  const formTitle = document.getElementById('form-title');
+  const forgotButton = document.getElementById('forgot-button');
+  const errorBox = document.getElementById('error-message');
+  const authContainer = document.getElementById('auth-container');
+  const profileContainer = document.getElementById('profile-container');
+  const userEmailSpan = document.getElementById('user-email');
+  const logoutButton = document.getElementById('logout-button');
 
-      let isLogin = true;
+  // Toggle between Login/Signup
+  switchMode.addEventListener('click', () => {
+    isLogin = !isLogin;
+    formTitle.textContent = isLogin ? 'Login' : 'Sign Up';
+    submitButton.textContent = isLogin ? 'Login' : 'Sign Up';
+    switchMode.textContent = isLogin ? "Don't have an account? Sign up" : "Already have an account? Login";
+    confirmPassword.style.display = isLogin ? 'none' : 'block';
+    errorBox.textContent = '';
+  });
 
-      // Check if user is already logged in
-      const token = localStorage.getItem('token');
-      if (token
+  // Submit Button
+  submitButton.addEventListener('click', async () => {
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+    const confirm = confirmPassword.value.trim();
+
+    if (!email || !password || (!isLogin && password !== confirm)) {
+      errorBox.textContent = 'Please fill fields correctly';
+      return;
+    }
+
+    const endpoint = isLogin ? '/login' : '/signup';
+
+    try {
+      const res = await fetch(API_URL + endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('email', email);
+        showProfile();
+      } else {
+        errorBox.textContent = data.message || 'Error';
+      }
+    } catch (err) {
+      errorBox.textContent = 'Network error';
+    }
+  });
+
+  // Forgot Password
+  forgotButton.addEventListener('click', async () => {
+    const email = emailInput.value.trim();
+    if (!email) {
+      errorBox.textContent = 'Enter email first';
+      return;
+    }
+    try {
+      const res = await fetch(API_URL + '/forgot-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      const data = await res.json();
+      errorBox.textContent = data.message || 'Check your email';
+    } catch {
+      errorBox.textContent = 'Something went wrong';
+    }
+  });
+
+  // Show Profile
+  function showProfile() {
+    const email = localStorage.getItem('email');
+    if (!email) return;
+    userEmailSpan.textContent = email;
+    authContainer.style.display = 'none';
+    profileContainer.style.display = 'block';
+  }
+
+  // Logout
+  logoutButton.addEventListener('click', () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    authContainer.style.display = 'block';
+    profileContainer.style.display = 'none';
+  });
+
+  // If already logged in
+  window.onload = () => {
+    const token = localStorage.getItem('token');
+    if (token) showProfile();
+  }
+</script>
+
+</body>
+</html>
