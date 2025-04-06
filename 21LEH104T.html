@@ -1,133 +1,69 @@
-<html>
-  <div id="auth-box" style="font-family: Arial; max-width: 300px;">
-  <h3>Login</h3>
-  <input type="email" id="login-email" placeholder="Email" required><br><br>
-  <input type="password" id="login-password" placeholder="Password" required><br><br>
-  <button onclick="loginUser()">Login</button>
-  <button onclick="forgotPassword()">Forgot Password?</button>
-  
-  <hr>
-
-  <h3>Signup</h3>
-  <input type="email" id="signup-email" placeholder="Email" required><br><br>
-  <input type="password" id="signup-password" placeholder="Password" required><br><br>
-  <input type="password" id="signup-confirm" placeholder="Confirm Password" required><br><br>
-  <button onclick="signupUser()">Signup</button>
-</div>
-
-  <div id="user-profile" style="display:none;">
-    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" />
-
-  </div>
-  
-</html>
-
-<style>
-input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-}
-button {
-  padding: 8px 12px;
-  margin-right: 5px;
-}
-</style>
-
-
-<script>
-const API_URL = "https://mcq-backend-iota.vercel.app"; // e.g., https://auth-app.vercel.app
-
-function validateEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function loginUser() {
-  const email = document.getElementById("login-email").value.trim();
-  const password = document.getElementById("login-password").value;
-
-  if (!validateEmail(email)) return alert("Invalid email");
-  if (!password) return alert("Password required");
-
-  fetch(`${API_URL}/login`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }),
-  })
-    .then(res => res.json())
-    .then(data => {
-      if (data.token) {
-        localStorage.setItem("userToken", data.token);
-        localStorage.setItem("userEmail", email);
-        alert("Login successful");
-        location.reload();
-      } else {
-        alert(data.error || "Login failed");
-      }
-    })
-    .catch(() => alert("Something went wrong"));
-}
-
-
-async function signupUser() {
-  const email = document.getElementById('signup-email').value;
-  const password = document.getElementById('signup-password').value;
-
-  if (!email || !password) {
-    alert("Please fill in both email and password.");
-    return;
-  }
-
-  try {
-    const response = await fetch('https://mcq-backend-iota.vercel.app/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, password })
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-      alert("Signup successful!");
-      // Save token or redirect
-    } else {
-      alert("Signup failed: " + data.message);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login/Signup Page</title>
+  <style>
+    /* Basic styling for form and profile */
+    #auth-container, #profile-container {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
-  } catch (err) {
-    console.error("Signup error", err);
-    alert("Something went wrong");
-  }
-}
+    #profile-container {
+      display: none;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    #error-message {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="auth-container">
+    <h2 id="form-title">Login</h2>
+    <div id="error-message"></div>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <input type="password" id="confirm-password" placeholder="Confirm Password" style="display: none;">
+    <button id="auth-button">Login</button>
+    <p id="toggle-form">Don't have an account? <a href="#">Sign up</a></p>
+    <p><a href="#" id="forgot-password">Forgot Password?</a></p>
+  </div>
 
+  <div id="profile-container">
+    <h2>Welcome, <span id="user-email"></span></h2>
+    <button id="logout-button">Logout</button>
+  </div>
 
-function forgotPassword() {
-  const email = prompt("Enter your email to reset password:");
-  if (!email || !validateEmail(email)) return alert("Invalid email");
+  <script>
+    const API_URL = 'https://mcq-backend-iota.vercel.app/'; // Replace with your backend URL
 
-  fetch(`${API_URL}/forgot-password`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email }),
-  })
-    .then(res => res.json())
-    .then(data => alert(data.message || "Check your email"))
-    .catch(() => alert("Something went wrong"));
-}
-</script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const authContainer = document.getElementById('auth-container');
+      const profileContainer = document.getElementById('profile-container');
+      const formTitle = document.getElementById('form-title');
+      const authButton = document.getElementById('auth-button');
+      const toggleForm = document.getElementById('toggle-form');
+      const forgotPassword = document.getElementById('forgot-password');
+      const confirmPasswordInput = document.getElementById('confirm-password');
+      const errorMessage = document.getElementById('error-message');
+      const userEmailSpan = document.getElementById('user-email');
+      const logoutButton = document.getElementById('logout-button');
 
-<script>
-function showProfileIcon() {
-  if (localStorage.getItem("userToken")) {
-    document.getElementById("user-profile").style.display = "inline-block";
-  }
-}
+      let isLogin = true;
 
-function goToProfile() {
-  window.location.href = "profile.html";
-}
-
-document.addEventListener("DOMContentLoaded", showProfileIcon);
-</script>
-
+      // Check if user is already logged in
+      const token = localStorage.getItem('token');
+      if (token
