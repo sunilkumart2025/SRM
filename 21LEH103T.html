@@ -213,6 +213,13 @@ function showProfile() {
 
 // Auto show profile icon if already logged in
 window.onload = showProfileIcon;
+
+fetch("https://mcq-backend-yourname.vercel.app/signup", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ name, email, password }),
+});
+
 </script>
 
 </head>
