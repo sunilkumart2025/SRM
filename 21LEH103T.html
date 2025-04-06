@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester 2</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e2f;
+            color: white;
+        }
+        header {
+            background-color: #282a36;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #21222c;
+            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        nav .branding {
+            font-size: 28px;
+            font-weight: bold;
+            color: #50fa7b;
+            text-shadow: 0 0 10px #50fa7b, 0 0 20px #50fa7b;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background: #ffb86c;
+            color: black;
+            transform: scale(1.1);
+        }
+        .container {
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            width: 80%;
+            margin: 50px auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #44475a;
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #8be9fd;
+        }
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .section ul li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: linear-gradient(90deg, #6272a4, #44475a);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .section ul li:hover {
+            background: linear-gradient(90deg, #ffb86c, #f1fa8c);
+            transform: translateY(-5px);
+        }
+        .section ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+            background: #50fa7b;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .section ul li a:hover {
+            background: #ff5555;
+            color: black;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .navigation-buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .navigation-buttons a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(90deg, #6272a4, #44475a);
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: buttonGlow 2s infinite alternate;
+        }
+        .navigation-buttons a:hover {
+            background: linear-gradient(90deg, #ffb86c, #f1fa8c);
+            transform: scale(1.1);
+        }
+        @keyframes buttonGlow {
+            0% {
+                box-shadow: 0 0 10px #50fa7b;
+            }
+            100% {
+                box-shadow: 0 0 20px #50fa7b;
+            }
+        }
+    </style>
+    
+    
+    
+    <script>
+const API_URL = "https://mcq-backend-iota.vercel.app";
+let isLogin = true;
+
+function toggleForm() {
+  isLogin = !isLogin;
+  document.getElementById("formTitle").textContent = isLogin ? "Login" : "Signup";
+  document.getElementById("confirmPassword").style.display = isLogin ? "none" : "block";
+}
+
+function showAuthModal() {
+  document.getElementById("authModal").style.display = "block";
+}
+
+function submitAuth() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+
+  if (!email || !password || (!isLogin && password !== confirmPassword)) {
+    alert("Please check your inputs.");
+    return;
+  }
+
+  const path = isLogin ? "/login" : "/signup";
+  fetch(API_URL + path, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password }),
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data?.data) {
+        localStorage.setItem("userEmail", email);
+        showProfileIcon();
+        alert(isLogin ? "Login Successful" : "Signup Successful");
+        document.getElementById("authModal").style.display = "none";
+      } else {
+        alert(data?.message || "Something went wrong.");
+      }
+    })
+    .catch(err => alert("Error: " + err.message));
+}
+
+function showForgotPassword() {
+  const email = prompt("Enter your email to reset password:");
+  if (!email) return;
+  fetch(API_URL + "/forgot-password", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
+  })
+    .then(res => res.json())
+    .then(data => alert("Check your email for password reset link."))
+    .catch(err => alert("Error: " + err.message));
+}
+
+function showProfileIcon() {
+  if (localStorage.getItem("userEmail")) {
+    document.getElementById("profileSection").style.display = "block";
+  }
+}
+
+function showProfile() {
+  const email = localStorage.getItem("userEmail");
+  alert("Logged in as: " + email + "\nClick OK to logout.");
+  if (confirm("Do you want to logout?")) {
+    localStorage.removeItem("userEmail");
+    location.reload();
+  }
+}
+
+// Auto show profile icon if already logged in
+window.onload = showProfileIcon;
+</script>
+
+</head>
+<body>
+    <header>
+        <h1>SRM Study Hub - 21CSC101T</h1>
+    </header>
+    <nav>
+        <div class="branding">SKY</div>
+        <div>
+            <a href="https://sky-phi.vercel.app/">Home</a>
+            <a href="developer.html">Developer</a>
+            <a href="contribute.html">Contribute</a>
+        </div>
+    </nav>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- Login / Signup / Forgot Password Modal -->
+<div id="authModal" style="display:none;">
+  <div>
+    <h2 id="formTitle">Login</h2>
+    <input type="email" id="email" placeholder="Email" required /><br />
+    <input type="password" id="password" placeholder="Password" required /><br />
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" style="display:none;" /><br />
+
+    <button onclick="submitAuth()">Submit</button>
+    <button onclick="toggleForm()">Switch to Signup/Login</button>
+    <button onclick="showForgotPassword()">Forgot Password?</button>
+  </div>
+</div>
+
+<!-- Profile Icon -->
+<div id="profileSection" style="display:none;">
+  <button onclick="showProfile()">👤 Profile</button>
+</div>
+
+    
+    
+    <button onclick="showAuthModal()">Login / Signup</button>
+
+    
+    
+    <div class="container">
+        <h2>PYQ with Answer Key</h2>
+        <div class="section">
+          <h3>CLA</h3>
+            <ul>
+                <li>
+                    Set A <a href="https://drive.google.com/file/d/1m-RB1EvtNjAbdhMIUKfYG_ZOVHRP-svk/view?usp=drive_link">Open</a>
+                </li>
+                <li>
+                    Set-A Answer Key <a href="https://drive.google.com/file/d/1lXabBygjSW2gpeJuNQeQDwS9rVhJZyTE/view?usp=drive_link">Open</a>
+                </li>
+                <li>
+                    Set B <a href="https://drive.google.com/file/d/1lz-ED5u7fwdaAlSMhiQqLQ__OsLgByEl/view?usp=drive_link">Open</a>
+                </li>
+                <li>
+                    Set-B Answer Key<a href="https://drive.google.com/file/d/1lUAVRpCznoNNXYZhzZicQ68Xzw2rppKt/view?usp=drive_link">Open</a>
+                </li>
+              <li>
+                    Set C <a href="https://drive.google.com/file/d/1m21RbZaKqAbPsxVc5rnzn-ItyPV5MTy4/view?usp=drive_link">Open</a>
+                </li>
+              <li>
+                    Set-C Answer Key <a href="https://drive.google.com/file/d/1lGcoNLMQH73EOYFysSdc4-FfvrVl0uuD/view?usp=drive_link">Open</a>
+                </li>
+              <li>
+                    Set D <a href="https://drive.google.com/file/d/1m-caBLkRo0A-LbAa_VI_3qXmZjMDuJu2/view?usp=drive_link">Open</a>
+                </li>
+              <li>
+                    Set-D Answer Key <a href="https://drive.google.com/file/d/1lZ1165L4NuRBvtE_r1X91OlQoZNupNuG/view?usp=drive_link">Open</a>
+                </li>
+              <li>
+                    Set-E Answer Key <a href="https://drive.google.com/file/d/1lqaGSBbymICwoCDea6gRuUm8IDJwd3GI/view?usp=drive_link">Open</a>
+                </li>
+              <li>
+                    Set-F Answer Key <a href="https://drive.google.com/file/d/1llC81IsVQ5mW-wDlnjroldKJmdc9hWJ-/view?usp=drive_link">Open</a>
+                </li>
+              <li>
+                    Set-G Answer Key <a href="https://drive.google.com/file/d/1l_d-rJeB9gmfnEnPOrPvbtmKa9Vt2hG9/view?usp=drive_link">Open</a>
+                </li>
+              <li>
+                    Set-H Answer Key <a href="https://drive.google.com/file/d/1ltF6xY1TfMSCMxDe50dg1HKbZuaS3YFL/view?usp=drive_link">Open</a>
+                </li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3>CLA Question Paper</h3>
+            <ul>
+                <li>
+                    CT-1 Set-D11 Oct 2022 with Answer Key<a href="#">Open</a>
+                </li>
+                <li>
+                    CT-1 Set-D12 Oct 2022 with Answer Key<a href="YOUR_DRIVE_LINK_MODULE2">Open</a>
+                </li>
+                <li>
+                    Module 3 <a href="YOUR_DRIVE_LINK_MODULE3">Open</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Previous Year Questions</h2>
+        <div class="section">
+          <h3>Semester Question Paper</h3>
+            <ul>
+                <li>
+                    Jan 2023 <a href="#">Open</a>
+                </li>
+                <li>
+                    May 2023 <a href="YOUR_DRIVE_LINK_2021">Open</a>
+                </li>
+                <li>
+                    July 2023 <a href="YOUR_DRIVE_LINK_2022">Open</a>
+                </li>>
+                <li>
+                    Dec 2023 <a href="YOUR_DRIVE_LINK_2022">Open</a>
+                </li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3>CLA Question Paper</h3>
+            <ul>
+                <li>
+                    CT-1 Set-D11 Oct 2022 with Answer Key<a href="#">Open</a>
+                </li>
+                <li>
+                    CT-1 Set-D12 Oct 2022 with Answer Key<a href="YOUR_DRIVE_LINK_MODULE2">Open</a>
+                </li>
+                <li>
+                    Module 3 <a href="YOUR_DRIVE_LINK_MODULE3">Open</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
