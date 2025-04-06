@@ -16,7 +16,8 @@
 </div>
 
   <div id="user-profile" style="display:none;">
-    <img src="profile-icon.png" width="30" onclick="goToProfile()" title="Profile" />
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" />
+
   </div>
   
 </html>
@@ -67,27 +68,39 @@ function loginUser() {
     .catch(() => alert("Something went wrong"));
 }
 
-function signupUser() {
-  const email = document.getElementById("signup-email").value.trim();
-  const password = document.getElementById("signup-password").value;
-  const confirm = document.getElementById("signup-confirm").value;
 
-  if (!validateEmail(email)) return alert("Invalid email");
-  if (!password || password.length < 6) return alert("Password must be 6+ chars");
-  if (password !== confirm) return alert("Passwords do not match");
+async function signupUser() {
+  const email = document.getElementById('signup-email').value;
+  const password = document.getElementById('signup-password').value;
 
-  fetch(`${API_URL}/signup`, ...
- {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }),
-  })
-    .then(res => res.json())
-    .then(data => {
-      alert(data.message || "Signup success");
-    })
-    .catch(() => alert("Something went wrong"));
+  if (!email || !password) {
+    alert("Please fill in both email and password.");
+    return;
+  }
+
+  try {
+    const response = await fetch('https://mcq-backend-iota.vercel.app/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, password })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("Signup successful!");
+      // Save token or redirect
+    } else {
+      alert("Signup failed: " + data.message);
+    }
+  } catch (err) {
+    console.error("Signup error", err);
+    alert("Something went wrong");
+  }
 }
+
 
 function forgotPassword() {
   const email = prompt("Enter your email to reset password:");
