@@ -1,55 +1,14 @@
-<!-- navbar.html -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
-  <a class="navbar-brand" href="/">🌐 YourSite</a>
-  <div class="ms-auto" id="auth-buttons">
-    <!-- Buttons will be injected here -->
-  </div>
-</nav>
-<iframe src="pdfjs/web/viewer.html?file=your-document.pdf" width="100%" height="800px" style="border: none;"></iframe>
-
-<script>
-  const { createClient } = supabase;
-  const supabaseUrl = 'https://aafmgvxhpdjsqrbjkzps.supabase.co'; // replace this
-  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhZm1ndnhocGRqc3FyYmprenBzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQxMTE2NjEsImV4cCI6MjA1OTY4NzY2MX0.0uxlvXQ-aX5Jk8ICsird0SCaDPgbh5NQkAI6UGIxj1Q'; // replace this
-  const supabaseClient = createClient(supabaseUrl, supabaseKey);
-
-  async function loadNavbarAuthState() {
-    const { data: { session } } = await supabaseClient.auth.getSession();
-
-    const authButtons = document.getElementById('auth-buttons');
-
-    if (session && session.user) {
-      // Logged in: show profile icon
-      authButtons.innerHTML = `
-        <div class="dropdown">
-          <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown">
-            👤 ${session.user.email}
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="/profile.html">My Profile</a></li>
-            <li><a class="dropdown-item" href="#" onclick="logout()">Logout</a></li>
-          </ul>
-        </div>
-      `;
-    } else {
-      // Not logged in: show Login/Signup
-      authButtons.innerHTML = `
-        <a href="/login.html" class="btn btn-outline-primary me-2">Login</a>
-        <a href="/signup.html" class="btn btn-primary">Sign Up</a>
-      `;
-    }
-  }
-
-  async function logout() {
-    await supabaseClient.auth.signOut();
-    window.location.reload(); // Refresh to update navbar
-  }
-
-  loadNavbarAuthState();
-</script>
-
-<!-- Bootstrap JS for dropdowns -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Read-Only PDF Viewer</title>
+</head>
+<body>
+  <iframe
+    src="viewer.html?file=document.pdf"
+    width="100%"
+    height="800px"
+    style="border: none;"
+  ></iframe>
+</body>
+</html>
