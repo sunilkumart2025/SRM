@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Secure PDF View</title>
+  <title>PDF Viewer</title>
   <style>
     html, body {
-      height: 100%;
       margin: 0;
+      padding: 0;
+      height: 100%;
       overflow: hidden;
     }
     iframe {
@@ -18,21 +19,21 @@
 </head>
 <body oncontextmenu="return false">
   <iframe 
-    src="https://drive.google.com/file/d/13rviWc3QC1WG00CnAOo4w_phRFZrNGmd/preview" 
+    src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://drive.google.com/uc?export=download&id=13rviWc3QC1WG00CnAOo4w_phRFZrNGmd" 
     allow="fullscreen">
   </iframe>
 
   <script>
     // Block Ctrl+P, Ctrl+S, Ctrl+U
-    document.addEventListener('keydown', function (e) {
-      if ((e.ctrlKey || e.metaKey) && ['p', 's', 'u'].includes(e.key.toLowerCase())) {
+    document.addEventListener("keydown", function (e) {
+      if ((e.ctrlKey || e.metaKey) && ["p", "s", "u"].includes(e.key.toLowerCase())) {
         e.preventDefault();
       }
     });
 
-    // Prevent drag-drop or middle click
-    document.addEventListener('mousedown', function(e) {
-      if (e.button === 1) e.preventDefault(); // middle click
+    // Prevent middle click
+    document.addEventListener("mousedown", function(e) {
+      if (e.button === 1) e.preventDefault();
     });
   </script>
 </body>
