@@ -4,41 +4,19 @@
   <meta charset="UTF-8">
   <title>PDF Viewer</title>
   <style>
- @media print {
-  body {
-    display: none;
-  }
-}
 
   </style>
 </head>
 <body>
 
  <iframe
-  src="https://srm-gamma.vercel.app/pdfjs/web/viewer.html?file=https://srm-gamma.vercel.app/document.pdf#toolbar=0"
+  src="https://srm-gamma.vercel.app/pdfjs/web/viewer.html?file=https://srm-gamma.vercel.app/files/document.pdf#toolbar=0"
   width="100%"
-  height="600px"
+  height="800px"
   style="border: none;"
   sandbox="allow-scripts allow-same-origin"
   oncontextmenu="return false">
-</iframe>
-
-
-
-  <script>
-  // Disable right-click
-  document.addEventListener('contextmenu', event => event.preventDefault());
-
-  // Disable print/save/view source shortcuts
-  document.addEventListener('keydown', function(e) {
-    if (
-      (e.ctrlKey && ['s','p','u','c'].includes(e.key.toLowerCase())) ||
-      e.key === 'F12'
-    ) {
-      e.preventDefault();
-    }
-  });
-</script>
+ </iframe>
 
 
 </body>
